@@ -11,10 +11,6 @@ layout:
                 two: Mentions légales
                 three: Politique de confidentialité
                 four: Politique de cookies
-            credits:
-                text:
-                    one: Site réalisé par TALENTID - © Tous droits réservés
-                    two: TalentiD version 1.0 - 20
 about:
     social:
         title: Me suivre

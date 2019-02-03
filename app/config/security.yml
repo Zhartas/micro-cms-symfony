@@ -4,7 +4,7 @@ security:
             memory:
                 users:
                     master:
-                        password: $2y$12$ZZ1t.FAbMev2nUFJ.wTvGOfs/A2NTZr/h..nESq47fwb51urG2gQO
+                        password: $2y$12$Ozh2nqcZz.svyp6sJJsJHusP6CJu8dPew06pagvfkXMaCB1WVKV6.
                         roles: 'ROLE_MASTER'
                     admin:
                         password: $2y$12$CIwL41V4IEDLIUoLHwrCEelact.WNP59rN7xo7RRxgCEfC5JCGq1K
