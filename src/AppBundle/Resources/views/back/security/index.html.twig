@@ -1,0 +1,71 @@
+{% extends '@views/back/layout.html.twig' %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/back/authentification.css') }}"/>
+{% endblock %}
+{% block main_layout %}
+    <div class="container" id="auth">
+        <div class="row">
+            <section class="col-sm-12">
+                <form class="form-signin" action="{{ path('admin_authentification') }}" method="post">
+                    <div class="text-center mb-4">
+                        <h1 class="h5 mb-3 font-weight-normal pt-4 pb-1">Bienvenue dans votre espace d'administration</h1>
+                        <img src="{{ asset('img/img-user/utilities/main-logo.png') }}" alt="" class="pb-4">
+                    </div>
+                    <div>
+                        {% if error %}
+                            <div>
+                                <p class="font-weight-bold text-danger small">
+                                    <i class="material-icons">
+                                        error_outline
+                                    </i>
+                                    {{ error.messageKey|trans(error.messageData, 'security') }}
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-label-group mt-2 pb-2">
+                        <label for="username" class="text-uppercase small font-weight-bold">Login</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="material-icons color-theme-blue">
+                                        perm_identity
+                                    </i>
+                                </div>
+                            </div>
+                            <input type="text" id="username" name="_username" class="form-control"
+                                   placeholder="Username" value="{{ last_username }}" required autofocus>
+                        </div>
+                    </div>
+                    <div class="form-label-group mt-3">
+                        <label for="password" class="text-uppercase small font-weight-bold">Mot de passe</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <i class="material-icons color-theme-blue">
+                                        lock
+                                    </i>
+                                </div>
+                            </div>
+                            <input type="password" id="password" class="form-control" placeholder="Password"
+                                   name="_password" required>
+                        </div>
+                    </div>
+                    <div class="pt-5">
+                        <button class="btn bg-theme btn-lg border-theme btn-block text-uppercase shadow m-auto"
+                                type="submit">Se connecter
+                        </button>
+                    </div>
+                    <div id="nfo" class="relative w-75 m-auto text-center">
+                        <hr>
+                        <i class="material-icons text-secondary">
+                            notifications
+                        </i>
+                    </div>
+                    <p class="mb-3 text-muted text-center text-secondary">Accès soumis à autorisation</p>
+                </form>
+            </section>
+        </div>
+    </div>
+{% endblock %}
+{% block js_layout %}{% endblock %}

@@ -1,0 +1,13 @@
+<div class="row">
+    <p class="h5 d-block pt-4 pb-3 pl-5 w-100 m-0">Choix d'un icon</p>
+    <hr>
+</div>
+<div class="row no-gutters">
+
+    {% for icon in icons %}
+        <div class="col-sm-3 pt-3 pb-3 text-center select-icon"  data-dismiss="modal">
+            <i class="material-icons">{{ icon.name }}</i>
+            <p class="font-weight-bold">{{ icon.name }}</p>
+        </div>
+    {% endfor %}
+</div>

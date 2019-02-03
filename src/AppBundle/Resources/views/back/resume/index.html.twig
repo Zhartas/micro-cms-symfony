@@ -1,0 +1,168 @@
+{% extends '@views/back/layout.html.twig' %}
+    {% block head_layout %}
+        <link rel="stylesheet" href="{{ asset('css/back/resume.css') }}"/>
+    {% endblock %}
+  {% block header_layout %}
+      {% include '@views/back/header.html.twig' %}
+  {% endblock %}
+{% block main_layout %}
+
+    <div class="container">
+        <div class="row pb-5">
+            <h1>Mes Résumés</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Bandeau de résumé</h2>
+                <hr>
+                <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis cumque
+                    deserunt dicta
+                    dignissimos ea eaque eius et fugiat harum illo illum, nemo numquam porro quae quibusdam quos rem
+                    unde!</p>
+
+                    <div>
+                        <a href="{{ url('admin_resume_edit', {'id' : 0 }) }}"
+                           class="btn-icon text-theme"><span><i
+                                        class="material-icons">add_circle_outline</i></span><span>Ajouter un résumé</span>
+                        </a>
+                    </div>
+
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+
+
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Liste</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="table">
+                            <div class="table-body">
+                                {% if resumes|length == 0 %}
+                                    <ul>
+                                        <li class="text-center">
+                                            <img class=" pt-4"
+                                                 src="{{ asset('img/framework/back/cloud-computing.png') }}"/>
+                                            <p class="font-weight-bold text-muted">Aucun résumé pour le moment</p>
+
+                                            <div>
+                                                <a href="{{ url('admin_resume_edit', {'id' : '0' }) }}"
+                                                   class="btn-icon text-theme"><span><i class="material-icons">add_circle_outline</i></span><span>Créer un premier résumé</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% else %}
+                                    <ul>
+                                        {% for resume in resumes %}
+                                            <li class="row">
+                                                <div class="col-sm-8">
+
+                                                    <i class="locale {{ resume.lang.code }}">{{ resume.lang.code }}</i>
+
+                                                    <h3 class="text-theme h6 m-0">{{ resume.name | truncate(30) }}</h3>
+                                                    <p class="small m-0">{{ resume.number | truncate(30) }}</p>
+
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <a href="{{ url('admin_resume_edit', {'id' : resume.id }) }}"
+                                                           class="btn-dev">Modifier</a>
+                                                        <a href="{{ url('admin_resume_remove', {'id' : resume.id }) }}"
+                                                           class="btn-dev">Supprimer</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            {#     <div class="col-sm-12 col-md-8">
+                     <div class="row no-gutters header-form">
+                         <div class="col">
+                             <h2 class="h5">Liste</h2>
+                             <hr>
+                         </div>
+
+                     </div>
+
+                     <div class="row no-gutters">
+                         <div class="col">
+                             <table class="table" id="timeline-table">
+                                 <thead>
+                                 <tr>
+                                     <th scope="col">Icon</th>
+                                     <th scope="col">Nombre</th>
+                                     <th scope="col">Texte</th>
+                                     <th scope="col">Action</th>
+                                 </tr>
+                                 </thead>
+                                 <tbody>
+                                 {% if resumes|length == 0 %}
+                                     <tr>
+                                         <td colspan="5" class="text-center">
+                                             <img class=" pt-4" src="{{ asset('img/framework/back/cloud-computing.png') }}"/>
+                                             <p class="font-weight-bold text-muted">Aucun resumé</p>
+                                         </td>
+                                     </tr>
+                                 {% else %}
+                                     {% for resume in resumes %}
+                                         <tr>
+                                             <td>
+                                                 {% if resume.icon is not null %}<i
+                                                         class="material-icons">{{ resume.icon }}</i>{% else %}Aucun icon{% endif %}
+                                             </td>
+                                             <td>
+                                                 {{ resume.number }}
+                                             </td>
+                                             <td>
+                                                 {{ resume.name }}
+                                             </td>
+                                             <td>
+                                                 <a class="text-dark"
+                                                    href="{{ url('admin_resume_remove', {'id' : resume.id }) }}"><i
+                                                             class="material-icons" data-toggle="tooltip"
+                                                             data-placement="right" title="Supprimer">delete</i></a>
+                                             </td>
+                                         </tr>
+                                     {% endfor %}
+                                 {% endif %}
+                                 </tbody>
+                             </table>
+
+                         </div>
+                     </div>
+
+                 </div>#}
+        </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade modalIcons" tabindex="-1" role="dialog" aria-labelledby="modalIcons" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-2">
+                {{ render(controller('AppBundle:Back:listIcons')) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/resume.js') }}"></script>
+{% endblock %}

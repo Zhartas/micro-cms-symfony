@@ -1,0 +1,63 @@
+accueil:
+    'mot clé 1': 'Coach & Consultant'
+    'mot clé 2': 'Marianne Kopf'
+    'titre principal H1': "Consulting & Coaching for Change\r\nLeadership & Business Transformation"
+    'titre secondaire H2': "I help you lead your strategic transformation, \r\nfrom vision to action, while engaging your teams \r\nand your partners in the process. "
+    'mot clé 3': Transformation
+    'mot clé 4': Engagement
+    'titre a propos': "Leaders, entrepreneurs,\r\nmanagers, partners..."
+    'paragraphe 1 a propos': 'Today the pace of change on your markets requires agility and creativity to be able to adapt and anticipate the next best move. To perform in a volatile, uncertain, complex and ambiguous environment, your organisation may need to transform from within. This can be achieved only with the full commitment of the men and women who will live through the change, at all levels of your ecosystem.'
+    'paragraphe 2 a propos': 'As a professional coach, consultant and practitioner of Open Space Technology, I help you develop your talents, mobilise your teams and accelerate your transformation process while engaging of your extended organisation. '
+    'titre services': "Understanding your challenges to \r\nco-design a bespoke transformation program. "
+    'paragraphe 1 services': 'Whether you wish to work on your personal development, improve your team''s performance or transform your organisation, I will adapt my methodologies to your specific needs.'
+    'paragraphe 2 services': 'After an initial and shared evaluation, we will co-design a unique coaching roadmap, aligned with your business objectives and structured along key milestones. We will adapt the program as your needs evolve.'
+    'quote 1': 'Even a long journey starts with a single step.'
+    'quote 2': 'Lao Tseu.'
+à-propos:
+    'mot clé 1': 'Positive attitude'
+    'titre principal H1': "Marianne KOPF\r\nSenior Coach & Consultant"
+    'paragraphe principal': "More than 20 years experience in leadership\r\nin B2B & B2C organisations and as senior \r\nexecutive coach and consultant. \r\n\r\nPsycho-dynamics of Organisations (INSEAD) \r\nOpen Space Technology & Communication\r\nTraining design and delivery"
+    'titre H2': 'Perceptive, pragmatic & positive.'
+    'sous-titre H2': 'My life journey offered many opportunities to witness the impact of change on people and organisations. I also learned on the way how positive psychology and collective intelligence can support and accelerate organisational and cultural transformations.'
+    'paragraphe 1': 'Hence, I am particularly interested in deep and complex transitions, those requiring new behaviours and calling for systemic and innovative approaches.'
+    'paragraphe 2': 'To deliver on my promise, I offer you an open and pragmatic mind, a real talent in engaging people and my knowledge and experience of a number of business environments and markets (industry, services, retail, government agencies, social entrepreneurship and NGOs) in France and abroad.'
+    'approche titre 1': 'Knowing the destination, chosing the path, sharing the journey... '
+    'approche titre 2': ''
+    'approche paragraphe': "Digitalisation, mergers, acquisitions or reorganisations are great opportunities for people development and business revival. To harness the benefits of such events, one needs a clear vision of the possible futures, a good dose of self confidence and the capability to inspire those who will work it through with you. And of course a true drive for action.\r\n\r\nThese three principles are core to my coaching and consulting approach. They lead to open and collaborative working methods that foster innovation. My proven track record supported by life-long learning and a diversified experience, enables me to build a relationship based on authenticity and trust."
+    quote: 'There are only two ways of living your life: believing that nothing is a miracle, or seeing a miracle in everything.'
+    'quote name': 'Albert Einstein'
+contact:
+    title: "Let's talk about you, \r\nyour project !\r\n\r\nYou may call me or\r\nContact me via Linked In\r\nOr Skype: marianne.eywa\r\n\r\nOr send me a message here.\r\nI will get back in touch \r\nwithin 48 hours.\r\n\r\nThanks!"
+    email: E-mail
+    phone: Phone
+formulaire:
+    label-prénom: Surname
+    label-nom: 'Last name'
+    label-société: Company
+    label-téléphone: Phone
+    label-email: 'Your e-mail'
+    label-texte: 'Your message'
+    placeholder-prénom: 'Your surname'
+    placeholder-nom: 'Your last name'
+    placeholder-société: 'Company, organisation...'
+    placeholder-email: you@example.com
+    placeholder-téléphone: 004138918...
+    placeholder-texte: 'Asking for a call back, an appointment, or just a question...'
+    bouton: Send
+navigation:
+    'lien 1': 'In a nutshell'
+    'lien 2': 'What we do'
+    'lien 3': 'Who we are'
+    'lien 4': 'Getting in touch'
+service:
+    title: 'What we do'
+    points-cles: 'Your benefits'
+base:
+    'bouton de contact': 'Contact me'
+    'popup tel titre': 'Call my mobile'
+    'popup tel bouton': Close
+    'popup email titre': 'Drop me an e-mail'
+    'popup email bouton': Close
+    'footer titre adresse': Address
+    'footer titre téléphone': Phone
+    'footer titre email': E-mail

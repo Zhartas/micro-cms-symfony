@@ -1,0 +1,149 @@
+#boxContactNfo {
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    -o-background-size: cover;
+    position: relative;
+    padding: 35px 0
+}
+
+#boxContactNfo:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .2);
+}
+
+#boxFormContact span{
+    color: #ff4f57;
+    font-weight: bold;
+    position: relative;
+    top: 7px;
+    left: 3px;
+    font-size: 1.5rem;
+}
+
+#boxContactNfo .bg-theme {
+    background-color: #59b0a3!important
+}
+
+#boxContactNfo .container {
+    position: relative;
+    z-index: 2
+}
+
+#boxContactNfo h2 {
+    padding-bottom: 140px
+}
+
+#boxContactNfo h2:before {
+    top: -10px;
+    opacity: .4;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+    width: 210px;
+    right: inherit;
+    left: 5px
+}
+
+#boxContactNfo {
+    z-index: 2
+}
+
+#boxContactNfo p {
+    margin: 0;
+}
+
+#boxFormContact {
+    padding: 30px 15px;
+    background: white;
+}
+
+@media(min-width:768px) {
+    #boxContactNfo .bg-theme {
+        padding: 10px;
+        margin-bottom: 10px
+    }
+}
+
+@media(min-width:960px) {
+    #boxContactNfo {
+        background: none
+    }
+    #boxContactNfo:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .5)
+    }
+    #contact {
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        -o-background-size: cover;
+        position: relative
+    }
+    #contact:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, .2);
+    }
+
+    #boxFormContact {
+        background: transparent;
+    }
+
+    #contact .container-fluid {
+        max-width: 1140px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        z-index: 2;
+        position: relative
+    }
+    #contact form {
+        max-width: 400px;
+        float: right;
+        padding: 75px 0
+    }
+    #contact form input,
+    #contact form input textarea {
+        padding: .6rem!important
+    }
+    #contact form label {
+        color: white
+    }
+    #boxContactNfo h2 {
+        padding-top: 138px;
+        padding-bottom: 53px;
+        padding-left: 31px
+    }
+    #boxContactNfo h2:before {
+        top: 128px;
+        opacity: .4;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        left: 69px
+    }
+    #boxContactNfo .bg-theme {
+        background: transparent!important
+    }
+
+
+    #boxContactNfo .bg-theme {
+        padding: 10px 10px 10px 60px
+    }
+    #boxContactNfo #boxSocialContact {
+        padding: 10px 10px 10px 40px
+    }
+}

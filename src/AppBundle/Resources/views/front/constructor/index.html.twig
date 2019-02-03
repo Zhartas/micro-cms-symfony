@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% if site is not null and site.sitename != '' %}{{ site.sitename }} - {% endif %} Page en construction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/front/constructor.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/theme-color.css') }}"/>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+<main class="container text-center">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-capitalize h1 text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{% if site is not null and site.sitename != '' %}{{ site.sitename }}{% endif %}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="h2">Le site est en construction <span class="saving"><span>.</span><span>.</span><span>.</span></span></h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <p class="pt-2">Le site <span class="font-weight-bold text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{% if site is not null and site.sitename != '' %}{{ site.sitename }}{% endif %}</span> est en cours de création<br> et sera prochainement disponible</p>
+        </div>
+    </div>
+
+</main>
+
+<footer class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <p class="small">Site réalisé par <span class="font-weight-bold"><a href="https://www.talentid.fr" target="_blank" class="text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">TALENTID</a></span> - © Tous droits réservés</p>
+                <p class="small">TalentiD version 1.0 </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+</body>
+</html>

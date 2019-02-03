@@ -1,0 +1,53 @@
+layout:
+    footer:
+            location:
+                title: Adresse
+            phone:
+                title: Téléphone
+            email:
+                title: email
+            li:
+                one: Plan du site
+                two: Mentions légales
+                three: Politique de confidentialité
+                four: Politique de cookies
+            credits:
+                text:
+                    one: Site réalisé par TALENTID - © Tous droits réservés
+                    two: TalentiD version 1.0 - 20
+about:
+    social:
+        title: Me suivre
+cgu:
+    cookies:
+        title: POLITIQUE DE COOKIES
+        bloc:
+            one:
+                title: DÉFINITION
+                text:
+                    one: Qu’est-ce qu’un cookie ?
+                    two: Un cookie est un petit fichier de texte qui est placé sur votre ordinateur, votre appareil mobile ou tout autre dispositif afin de recueillir des données concernant votre navigation sur notre site et de l’optimiser.
+                    three: Les cookies sont nécessaires pour faciliter la navigation lors de vos achats en ligne et pour la rendre plus agréable. Grâce aux cookies, vous avez accès à des fonctionnalités personnalisées et nous avons la possibilité, par exemple, de vous identifier ou de rappeler vos préférences pendant la navigation et lors de futures visites
+                    four: De plus, la lecture des cookies nous permet également d’améliorer notre site, de connaître l’affluence et la fréquence de visiteurs afin notamment de s’assurer que notre site fonctionne correctement et rapidement
+                    five: Les cookies sont-ils dangereux ?
+                    six: Les cookies ne causent aucun dommage à votre ordinateur et ne peuvent pas être porteurs de virus. Ils ne peuvent pas s’exécuter automatiquement. De plus, les cookies ne collectent aucune information sur votre ordinateur ou dans vos fichiers personnels
+                    seven: Nos cookies ne servent pas à stocker des informations d’identification personnelle sensibles, comme votre adresse, votre mot de passe, ou les données de votre carte de crédit.
+            two:
+                title: LA MAÎTRISE DES COOKIES
+                text:
+                    one: Comment désactiver les cookies ?
+                    two: Si vous le souhaitez, vous pouvez supprimer et/ ou bloquer les cookies de votre ordinateur
+                    three: Bien que chaque navigateur dispose d’un paramétrage différent, la configuration des cookies s’effectue généralement dans le menu « Préférences » ou « Outils » de votre navigateur, dans la partie supérieure de votre écran. Pour de plus amples informations sur la configuration des cookies, vous pouvez consulter le menu « Aide » de votre navigateur.
+                    four: Paramétrer votre navigateur
+                    five: Le paramétrage est susceptible de modifier vos conditions d’accès à nos services nécessitant l’utilisation de cookies. Si votre navigateur est configuré de manière à refuser l’ensemble des cookies, vous ne pourrez pas par exemple effectuer d’achats ou profiter de fonctions essentielles de notre site. Le paramétrage est spécifique à chaque navigateur
+            three:
+                title: LE RÉFÉRENCEMENT DES COOKIES
+                text:
+                    one: Les cookies de navigation
+                    two: Nous implantons sur votre ordinateur des cookies « strictement nécessaires » au bon fonctionnement de notre site et aux fonctionnalités d’utilisation (comme la mémorisation de votre panier jusqu’à la confirmation de votre commande).
+                    three: Les Cookies publicitaires
+                    four: Nous implantons des cookies qui nous permettent de vous présenter des publicités ciblées et adaptées à vos centres d’intérêt en dehors de notre site. Les cookies publicitaires nous permettent également de savoir si vous avez effectué un achat sur notre site après avoir cliqué sur le lien ou la bannière publicitaire d’un partenaire afin de pouvoir rémunérer ce dernier.
+                    five: Les Cookies de services
+                    six: Ces cookies nous permettent de vous proposer des services supplémentaires pour vous accompagner (chat, avis produit, etc.)
+                    seven: Les cookies de performance
+                    height: Ces cookies nous permettent d’améliorer et de personnaliser votre expérience de navigation selon vos anciennes visites, achats, etc.

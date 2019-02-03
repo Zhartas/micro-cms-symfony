@@ -1,0 +1,98 @@
+{% extends '@views/front/layout.html.twig' %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/navHamburgeur.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/cgu.css') }}"/>
+{% endblock %}
+{% block body_layout %}
+    <header>
+        {% include '@views/front/vendor/navHamburgeur.html.twig' %}
+    </header>
+    <main role="main">
+        <div class="container">
+            <div class="row pb-4">
+                <div class="col">
+                    <h1 class="pb-4 text-uppercase display-3">{{ 'privacy.title' | trans }}</h1>
+                    <hr>
+                    <h2 class="pt-4">{{ 'privacy.bloc.two.title' | trans }}</h2>
+                    <p>{{ 'privacy.bloc.one.text' | trans }}</p>
+                    <p class="pt-2 font-weight-bold">{{ 'privacy.site-name' | trans }}</p>
+                    <p>{{ 'privacy.bloc.two.text.one' | trans }}</p>
+                    <p>{{ 'privacy.bloc.two.text.two' | trans }}</p>
+                    <p>{{ 'privacy.bloc.two.text.three' | trans }}</p>
+                </div>
+            </div>
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.three.title' | trans }}</h2>
+                    <p><b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.three.text.one' | trans }}</p>
+                    <p><b>{{ 'privacy.bloc.three.text.two' | trans }}</b></p>
+                    <ul>
+                        <li>{{ 'privacy.bloc.three.text.three' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.four' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.five' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.six' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.seven' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.eight' | trans }}</li>
+                    </ul>
+                    <p><b>{{ 'privacy.bloc.three.text.nine' | trans }}</b></p>
+                    <ul>
+                        <li>{{ 'privacy.bloc.three.text.ten' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.eleven' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.twelve' | trans }}</li>
+                        <li>{{ 'privacy.bloc.three.text.thirteen' | trans }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.four.title' | trans }}</h2>
+                    <p>{{ 'privacy.bloc.four.text.one' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.four.text.two' | trans }}</p>
+                    <p>{{ 'privacy.bloc.four.text.three' | trans }}</p>
+                    <p>{{ 'privacy.bloc.four.text.four' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.four.text.five' | trans }}</p>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.five.title' | trans }}</h2>
+                    <p>{{ 'privacy.bloc.five.text.one' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.five.text.two' | trans }}</p>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.six.title' | trans }}</h2>
+                    <p>
+                        {{ 'privacy.bloc.six.text.one' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.six.text.two' | trans }}
+                    </p>
+                    <p>
+                        {{ 'privacy.bloc.six.text.three' | trans }}
+                    </p>
+                    <p><b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.six.text.four' | trans }} <b>{{ 'privacy.site-name' | trans }}</b></p>
+                </div>
+            </div>
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.seven.title' | trans }}</h2>
+                    <p><b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.seven.text.one' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.seven.text.two' | trans }}</p>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.eight.title' | trans }}</h2>
+                    <p>{{ 'privacy.bloc.eight.text.one' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.eight.text.two' | trans }}</p>
+                </div>
+            </div>
+
+            <div class="row pb-4">
+                <div class="col">
+                    <h2>{{ 'privacy.bloc.nine.title' | trans }}</h2>
+                    <p>{{ 'privacy.bloc.nine.text.one' | trans }}</p>
+                    <p><b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.nine.text.two' | trans }} <b>{{ 'privacy.site-name' | trans }}</b> {{ 'privacy.bloc.nine.text.three' | trans }}</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}

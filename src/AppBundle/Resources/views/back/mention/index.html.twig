@@ -1,0 +1,65 @@
+{% extends '@views/back/layout.html.twig' %}
+{% block title %}{{ 'home.title'| trans }}{% endblock %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/back/textarea-editor.css') }}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+{% endblock %}
+ {% block header_layout %}
+     {% include '@views/back/header.html.twig' %}
+ {% endblock %}
+{% block main_layout %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Mentions légales</h2>
+                <hr>
+                <p class="pb-1">Les mentions légales désignent les mentions obligatoires qui doivent apparaître sur tout
+                    support de communication. Les mentions légales d'un site internet servent à assurer une certaine
+                    transparence, à rassurer les internautes sur l'identité de celui qui émet les informations. La
+                    personne morale ou physique devient l'éditeur du site et est responsable de son contenu.</p>
+                {% include '@views/back/btn-viewSite.html.twig' %}
+
+            </div>
+
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Editer mes mentions légales</h2>
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        {{ form_start(form) }}
+
+                        <div class="row mt-3 mb-1">
+                            <div class="col-sm-12">
+                                <span class="errors-form">{{ form_errors(form.text) }}</span>
+                                {{ form_label(form.text) }}
+                                {{ form_widget(form.text) }}
+                            </div>
+                        </div>
+                        <div class="row pt-5 pb-3">
+                            <div class="col">
+                                <button class="btn btn-block bg-theme border-theme text-uppercase shadow float-right"
+                                        type="submit">
+                                    Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/mentions.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/back/textarea-editor.js') }}"></script>
+{% endblock %}

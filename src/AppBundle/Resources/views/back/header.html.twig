@@ -1,0 +1,184 @@
+<header class="fixed-top">
+    <div class="row text-center no-gutters" id="notif">
+        <div class="col">
+            <p class="text-light font-weight-bold m-0"></p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row" id="box-nav">
+            <div class="col-sm-12 col-lg-2">
+                <div class="box-img p-0 m-0 position-relative">
+                    <span class="box-logo">
+                         <img src="{{ asset('img/img-user/utilities/main-logo.png') }}" class="d-inline-block">
+                    </span>
+
+                    <button type="button" id="btn-nav" class="btn-no d-lg-none"><i class="material-icons">
+                            expand_more
+                        </i>
+                    </button>
+                </div>
+            </div>
+            <nav class="col-lg-10 d-none d-lg-block">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a href="{{ url('admin_gestion') }}"
+                           class="nav-link full-height text-dark {% if current == 'gestion' %}active{% endif %}">
+                            Administration du site
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin_social') }}"
+                           class="nav-link full-height text-dark {% if current == 'social' %}active{% endif %}">
+                            Mes Réseaux sociaux
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin_images') }}"
+                           class="nav-link full-height text-dark {% if current == 'images' %}active{% endif %}">
+                            Les images
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('admin_translations') }}"
+                           class="nav-link full-height text-dark {% if current == 'translations' %}active{% endif %}">
+                            Édition des textes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="dropdown full-height ">
+                            <button type="button"
+                                    class="dropdown-toggle text-dark btn-no full-height {% if current == 'timeline' or current == 'services' or current == 'resume' %}active{% endif %}"
+                                    data-toggle="dropdown">
+                                Module éditable
+                            </button>
+                            <div class="dropdown-menu pb-2 pl-3 pr-3">
+                                <a class="dropdown-item text-dark font-weight-bold" href="{{ url('admin_timeline') }}">Timeline</a>
+                                <a class="dropdown-item text-dark font-weight-bold" href="{{ url('admin_resume') }}">Bandeau
+                                    résumé</a>
+                                <a class="dropdown-item text-dark font-weight-bold" href="{{ url('admin_card') }}">Mini carte</a>
+                                <a class="dropdown-item text-dark font-weight-bold" href="{{ url('admin_vp') }}">Points clés</a>
+                                <a class="dropdown-item text-dark font-weight-bold" href="{{ url('admin_services') }}">Mes services</a>
+                                <a class="dropdown-item text-dark font-weight-bold" href="{{ url('admin_mentions') }}">Mentions légales</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+            </nav>
+            <nav class="col-sm-12 d-lg-none" id="nav-small">
+                <div>
+                    <div>
+                        <p>Paramètres du site</p>
+                        <hr>
+                    </div>
+                    <ul>
+                        <li class="nav-item gestion">
+                            <a href="{{ url('admin_gestion') }}"
+                               class="nav-link full-height text-dark {% if current == 'gestion' %}active{% endif %}">
+                                Administration du site
+                            </a>
+                        </li>
+                        <li class="nav-item social">
+                            <a href="{{ url('admin_social') }}"
+                               class="nav-link full-height text-dark {% if current == 'social' %}active{% endif %}">
+                                Mes Réseaux sociaux
+                            </a>
+                        </li>
+                        <li class="nav-item images">
+                            <a href="{{ url('admin_images') }}"
+                               class="nav-link full-height text-dark {% if current == 'images' %}active{% endif %}">
+                                Les images
+                            </a>
+                        </li>
+                    </ul>
+                    <div>
+                        <p>Contenu éditable</p>
+                        <hr>
+                    </div>
+                    <ul>
+                        <li class="nav-item translations">
+                            <a href="{{ url('admin_translations') }}"
+                               class="nav-link full-height text-dark {% if current == 'translations' %}active{% endif %}">
+                                Édition des textes
+                            </a>
+                        </li>
+                        <li class="nav-item timeline">
+                            <a href="{{ url('admin_timeline') }}"
+                               class="nav-link full-height text-dark {% if current == 'timeline' %}active{% endif %}">
+                                Timeline
+                            </a>
+                        </li>
+                        <li class="nav-item resume">
+                            <a href="{{ url('admin_resume') }}"
+                               class="nav-link full-height text-dark {% if current == 'resume' %}active{% endif %}">
+                                Bandeau résumé
+                            </a>
+                        </li>
+                        <li class="nav-item resume">
+                            <a href="{{ url('admin_card') }}"
+                               class="nav-link full-height text-dark {% if current == 'card' %}active{% endif %}">
+                                Mini carte
+                            </a>
+                        </li>
+                        <li class="nav-item resume">
+                            <a href="{{ url('admin_vp') }}"
+                               class="nav-link full-height text-dark {% if current == 'vp' %}active{% endif %}">
+                                Points clés
+                            </a>
+                        </li>
+                        <li class="nav-item resume">
+                            <a href="{{ url('admin_services') }}"
+                               class="nav-link full-height text-dark {% if current == 'services' %}active{% endif %}">
+                                Mes services
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+    <div id="devTools" class="shadow d-none d-lg-block">
+        {% if is_granted('ROLE_MASTER') %}
+            <button url="{{ url('admin_devTools', {'action' : 'cache-dev'}) }}" title="Cache:clear --env:dev" type="button" data-toggle="tooltip" data-placement="right">
+                <i class="material-icons">
+                    layers_clear
+                </i>
+
+            </button>
+
+            <button url="{{ url('admin_devTools', {'action' : 'cache-prod'}) }}" title="Cache:clear --env:prod" type="button" data-toggle="tooltip" data-placement="right">
+                <i class="material-icons">
+                    layers
+                </i>
+            </button>
+
+            <button url="{{ url('admin_devTools', {'action' : 'update-db'}) }}"  title="Update schema" type="button" data-toggle="tooltip" data-placement="right">
+                <i class="material-icons">
+                    cloud_upload
+                </i>
+            </button>
+
+        {% endif %}
+            <a target="_blank" href="{{ url('showSite') }}"  title="Accéder l'éditeur" data-toggle="tooltip" data-placement="right">
+                <i class="material-icons">
+                    open_in_new
+                </i>
+            </a>
+        <a target="_blank" href="{{ url('home') }}"  title="Retour à l'accueil" data-toggle="tooltip" data-placement="right">
+            <i class="material-icons">
+                arrow_right_alt
+            </i>
+        </a>
+
+
+            <a href="{{ url('admin_logout') }}" title="Déconnexion de l'admin" data-toggle="tooltip" data-placement="right">
+                <i class="material-icons">
+                    flash_off
+                </i>
+            </a>
+    </div>

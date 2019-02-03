@@ -1,0 +1,21 @@
+{% extends '@views/front/layout.html.twig' %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/navHamburgeur.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/cgu.css') }}"/>
+{% endblock %}
+{% block body_layout %}
+    <header>
+        {% include '@views/front/vendor/navHamburgeur.html.twig' %}
+    </header>
+    <main role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    {% if mention is not empty and mention.text != '' %}
+                    {{ mention.text|raw }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

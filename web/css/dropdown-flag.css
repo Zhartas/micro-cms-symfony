@@ -1,0 +1,67 @@
+#dropdown-flag span{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#dropdown-flag button{
+    min-width: 85px;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    background: none;
+}
+
+#dropdown-flag button span{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 25% !important;
+    top: 4px;
+    color: white !important;
+    padding-bottom: 7px;
+}
+
+#dropdown-flag button span i{
+    position: absolute;
+    top: 4px;
+    left: -5px;
+}
+
+
+
+
+
+#choose-lang i.fr{
+    background-image: url("../../img/framework/interface/fr.svg");
+}
+
+
+#dropdown-flag .dropdown-menu{
+    border-radius: 0;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px !important;
+    background: white;
+}
+#dropdown-flag i{
+    width: 20px;
+    height: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    font-size: 0;
+
+
+}
+
+#dropdown-flag .dropdown-menu i{
+    position: absolute;
+    left: 25px;
+    top: 15px;
+}
+
+
+
+#dropdown-flag i.fr{
+    background-image: url("../img/framework/interface/fr.svg");
+}

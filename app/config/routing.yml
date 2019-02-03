@@ -1,0 +1,9 @@
+#app:
+#    resource: '@AppBundle/Controller/'
+#    type: annotation
+
+AppBundle:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:    /
+    requirements:
+        _locale: fr|en

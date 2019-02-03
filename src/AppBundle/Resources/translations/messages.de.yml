@@ -1,0 +1,63 @@
+accueil:
+    'mot clé 1': 'Coach expert'
+    'mot clé 2': 'Marianne Kopf'
+    'titre principal H1': "Votre coach en leadership \r\net conduite du changement"
+    'titre secondaire H2': "Je vous accompagne dans vos transformations \r\nstratégiques, de la vision à l’action, tout en \r\nmobilisant vos collaborateurs et vos partenaires."
+    'mot clé 3': Transformation
+    'mot clé 4': Engagement
+    'titre a propos': "Dirigeants, entrepreneurs, \r\nmanagers & partenaires…"
+    'paragraphe 1 a propos': 'L’accélération du changement sur vos marchés exige de votre entreprise à la fois agilité, créativité et performance. Or, la réussite de votre transformation dépend de l’engagement des hommes et des femmes qui la vivent, à tous les niveaux de votre écosystème.'
+    'paragraphe 2 a propos': 'En tant que coach professionnelle, consultante experte et facilitatrice en intelligence collective, je développe vos talents et fédère vos équipes, ainsi que vos partenaires, au service de votre stratégie. '
+    'titre services': "Comprendre vos enjeux, \r\npour vous offrir un \r\nprogramme sur mesure. "
+    'paragraphe 1 services': 'Qu’il s’agisse d’évolution personnelle, de performance d’équipe ou de transformation organisationnelle, mes approches méthodologiques s''adaptent à votre besoin spécifique.'
+    'paragraphe 2 services': 'Après une évaluation partagée, nous co-construisons un parcours de coaching unique, aligné sur vos objectifs, jalonné de points d''étapes et nourri de votre actualité au fil de l''eau.'
+    'quote 1': 'Même un long voyage, commence par un simple pas.'
+    'quote 2': 'Lao Tseu.'
+à-propos:
+    'mot clé 1': 'Positive attitude'
+    'titre principal H1': "Marianne KOPF\r\nCoach & Consultante"
+    'paragraphe principal': "Plus de 20 ans d'expérience en leadership \r\nau sein d'entreprises internationales B2B et B2C, \r\net en tant que consultante et coach auprès de dirigeants. \r\n\r\nPsychologie Clinique des Organisations (INSEAD) \r\nOpen Space Technology & Communication\r\nIngénierie & Animation de Formations"
+    'titre H2': 'Perspicace, pragmatique & créative.'
+    'sous-titre H2': 'Mon chemin de vie m''a permis d''expérimenter, dans de multiples situations, l''impact du changement sur les individus et les entreprises. Je découvre aussi chaque jour la force de la psychologie positive, du coaching narratif et de l''intelligence collective qui facilitent les transformations.'
+    'paragraphe 1': 'C''est pourquoi je m''intéresse tout particulièrement aux transitions complexes et profondes, celles qui impliquent de nouveaux comportements et requièrent une approche systémique et novatrice.'
+    'paragraphe 2': 'Pour cela je mets à votre service mon esprit ouvert et pragmatique, ma capacité à mobiliser les énergies autour d''un projet, ainsi que ma connaissance de divers secteurs d''activités et marchés (industrie, services, retail, institutions, ESS et ONG), en France et à l''étranger. '
+    'approche titre 1': 'Connaître la destination, choisir le chemin, partager le voyage...'
+    'approche titre 2': ''
+    'approche paragraphe': "Digitalisation, fusion/acquisitions et réorganisations sont autant d'opportunités d'évolution personnelle et de renouveau organisationnel. Encore faut-il avoir une vision claire des futurs possibles, nourrir la confiance en soi et inspirer dans l'action ceux qui vont incarner et conduire la transformation avec vous. \r\n\r\nCes trois principes guident ma démarche de coaching. Ils m'amènent à vous proposer des méthodes de travail collaboratives et génératrices d'innovation. Ils cristallisent aussi bien mes savoirs théoriques que mes pratiques professionnelles en un accompagnement empreint de pragmatisme et d'ouverture. "
+    quote: 'Il n''y a que deux façons de vivre votre vie. L''une en faisant comme si rien n''était un miracle, l''autre en faisant comme si tout était un miracle.'
+    'quote name': 'Albert Einstein'
+contact:
+    title: "Et si on parlait de vous, \r\nde votre projet ?\r\n\r\n\r\nAu téléphone ? \r\nVia Linked In ?\r\n\r\nOu complétez ce formulaire.\r\nJe vous répondrai sous 48 H."
+    email: Email
+    phone: Téléphone
+formulaire:
+    label-prénom: Prénom
+    label-nom: Nom
+    label-société: Société
+    label-téléphone: Téléphone
+    label-email: 'Votre e-mail'
+    label-texte: 'Votre message'
+    placeholder-prénom: 'Votre prénom'
+    placeholder-nom: 'Votre nom'
+    placeholder-société: 'Société, organisme'
+    placeholder-email: you@example.com
+    placeholder-téléphone: 038918...
+    placeholder-texte: 'Prise de RDV, question?'
+    bouton: 'Envoyer ma demande'
+navigation:
+    'lien 1': Accueil
+    'lien 2': 'Découvrez mes prestations'
+    'lien 3': 'Adoptez la positive attitude'
+    'lien 4': 'Contactez moi'
+service:
+    title: Préstation
+    points-cles: 'Mes points clé'
+base:
+    'bouton de contact': 'contactez moi'
+    'popup tel titre': 'CONTACTEZ-MOI PAR TÉLÉPHONE'
+    'popup tel bouton': fermer
+    'popup email titre': 'CONTACTEZ-MOI PAR EMAIL'
+    'popup email bouton': fermer
+    'footer titre adresse': Adresse
+    'footer titre téléphone': Téléphone
+    'footer titre email': Email

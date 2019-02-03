@@ -1,0 +1,79 @@
+.contactBtn {
+    position: fixed;
+    z-index: 10;
+    width: 55px;
+    height: 55px;
+    border: 2px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    right: 0;
+    -webkit-transition: all ease 100ms;
+    transition: all ease 100ms;
+    line-height: 3.6;
+    cursor: pointer;
+}
+
+.contactBtn:hover {
+    opacity: 0.9;
+    width: 90px;
+}
+
+#contactBtnPhone {
+    top: 250px
+}
+
+#contactBtnPhone i {
+    position: relative;
+    top: 2px
+}
+
+#contactBtnEmail {
+    top: 310px
+}
+
+#contactPhone .modal-body i {
+    position: relative;
+    top: 0
+}
+
+#contactPhone .modal-body span {
+    position: relative;
+    bottom: 13px;
+    left: 5px
+}
+
+#contactEmail .modal-body i {
+    position: relative;
+    top: 0
+}
+
+#contactEmail .modal-body span {
+    position: relative;
+    bottom: 13px;
+    left: 5px
+}
+header .modal-content > i{
+    background: #eee;
+    height: 65px;
+    width: 65px;
+    line-height: 1.9;
+    border-radius: 50%;
+}
+
+header .modal-title{
+    padding-top: 24px;
+}
+@media(min-width:768px) {
+    .contactBtn {
+        width: 75px;
+        height: 75px;
+        line-height: 4.2
+    }
+    .contactBtn i {
+        font-size: 2rem
+    }
+
+    #contactBtnEmail {
+        top: 330px
+    }
+}

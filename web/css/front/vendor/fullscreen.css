@@ -1,0 +1,121 @@
+#headerFullscreen:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .4);
+}
+
+#headerFullscreen .boxText {
+    bottom: 30px;
+    z-index: 2
+}
+
+#headerFullscreen .boxText .color-theme {
+    color: #000!important
+}
+
+#headerFullscreen hr{
+    display: none;
+}
+
+#headerFullscreen .h1 h1, #headerFullscreen .h1 p{
+    font-size: 1.3rem;
+}
+
+#headerFullscreen .boxText strong {
+    font-size: 2rem;
+    line-height: 1;
+    color: rgba(255,255,255,0.5);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"
+}
+
+@media(max-width:360px) {
+    #headerFullscreen .h1 h1, #headerFullscreen .h1 p{
+        font-size: 1rem;
+    }
+}
+
+
+@media(min-width:768px) {
+    #headerFullscreen .h1 {
+        padding: 10px
+    }
+
+
+
+
+    #headerFullscreen .boxText strong {
+
+        line-height: 1;
+        text-align: left;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+        padding: 0!important;
+        display: inherit
+    }
+    #headerFullscreen .boxText {
+        bottom: 80px
+    }
+}
+
+@media(min-width:960px) {
+    #headerFullscreen .w-90{
+        margin: 0 auto;
+    }
+    #headerFullscreen .p-3 {
+        background: transparent!important
+    }
+    #headerFullscreen .h1 *{
+        color: white!important;
+        max-width: 700px;
+    }
+
+    #headerFullscreen .h1 h1{
+        font-size: 1.4rem;
+        position: relative;
+        font-weight: normal;
+        padding-bottom: 0;
+        margin-bottom: 0px;
+
+    }
+    #headerFullscreen hr{
+        content: '';
+        min-width: 350px;
+        height: 2px;
+        display: inline-block;
+        background: #59b0a3;
+
+    }
+
+    #headerFullscreen .boxText .color-theme {
+        color: #59b0a3!important
+    }
+    #headerFullscreen strong {
+        position: relative;
+        right: 15%;
+        font-size: 3rem !important;
+    }
+   
+    #headerFullscreen .boxText {
+        bottom: 10%
+    }
+    #headerFullscreen .boxText strong.d-lg-block {
+        text-align: left!important;
+        right: 0;
+        text-indent: 20%
+    }
+}
+
+@media(min-width:1400px) {
+    #headerFullscreen .boxText strong {
+        font-size: 5rem;
+    }
+}
+
+@media only screen and (min-device-width:768px) and (max-device-width:1024px) {
+    #headerFullscreen {
+        background-attachment: inherit!important
+    }
+}

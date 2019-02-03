@@ -1,0 +1,104 @@
+{% extends '@views/back/layout.html.twig' %}
+  {% block header_layout %}
+      {% include '@views/back/header.html.twig' %}
+  {% endblock %}
+{% block main_layout %}
+
+    <div class="container">
+        <div class="row pb-5">
+            <h1>Timeline</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div>
+                    <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis
+                        cumque
+                        deserunt dicta
+                        dignissimos ea eaque eius et fugiat harum illo illum, nemo numquam porro quae quibusdam quos rem
+                        unde!</p>
+                </div>
+
+
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Création/modification de la timeline</h2>
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+                        <div class="row">
+                            <div class="col  p-3">
+                                {{ form_label(form.lang) }}
+                                {{ form_widget(form.lang) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 p-3">
+                                {{ form_label(form.dateStart) }}
+                                {{ form_widget(form.dateStart) }}
+                            </div>
+
+                            <div class="col-sm-6 p-3">
+                                {{ form_label(form.dateEnd) }}
+                                {% if form.vars.value.status == 'no' or form.vars.value.status == 'now' %}
+                                    {{ form_widget(form.dateEnd, {'attr' : {'disabled' : true }}) }}
+                                {% else %}
+                                    {{ form_widget(form.dateEnd) }}
+                                {% endif %}
+
+                                <div class="custom-control custom-checkbox pt-2">
+                                    <input type="checkbox" class="custom-control-input" id="no-date" {% if form.vars.value.status == 'no' %}checked{% endif %}>
+                                    <label class="custom-control-label" for="no-date">Pas de date de fin</label>
+                                </div>
+
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="now-date" {% if form.vars.value.status == 'now' %}checked{% endif %}>
+                                    <label class="custom-control-label" for="now-date">En-cours</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 pl-3 pb-3 pr-3">
+                                {{ form_label(form.title) }}
+                                {{ form_widget(form.title) }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 p-3">
+                                {{ form_label(form.text) }}
+                                {{ form_widget(form.text) }}
+                            </div>
+                        </div>
+                        {{ form_widget(form) }}
+
+                        <div class="row pt-4 pb-3">
+                            <div class="col">
+                                <button class="btn btn-block bg-theme border-theme text-uppercase shadow float-right" type="submit"
+                                        data-submit="appbundle_locale">
+                                    Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/timeline.js') }}"></script>
+{% endblock %}

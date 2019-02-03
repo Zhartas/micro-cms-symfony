@@ -1,0 +1,140 @@
+{% extends '@views/back/layout.html.twig' %}
+    {% block head_layout %}
+        <link rel="stylesheet" href="{{ asset('css/back/vp.css') }}"/>
+    {% endblock %}
+  {% block header_layout %}
+      {% include '@views/back/header.html.twig' %}
+  {% endblock %}
+{% block main_layout %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Points clés</h2>
+                <hr>
+                <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis cumque
+                    deserunt dicta
+                    dignissimos ea eaque eius et fugiat harum illo illum, nemo numquam porro quae quibusdam quos rem
+                    unde!</p>
+
+                <div>
+                    <a href="{{ url('admin_edit_vp', {'id' : 0 }) }}"
+                       class="btn-icon text-theme"><span><i class="material-icons">add_circle_outline</i></span><span>Ajouter un point clé</span>
+                    </a>
+                </div>
+                {% include '@views/back/btn-viewSite.html.twig' %}
+
+               {# <h2 class="h5 pt-3">Création</h2>
+                <hr>
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="row pt-3 pb-3">
+
+                    <div class="col">
+                        <label for="selectIcon" class="w-100 pb-1">Choix d'un icon</label>
+                        <button type="button" id="selectIcon" class="btn-dev btn-primary" data-toggle="modal"
+                                data-target=".modalIcons">Choisir
+                        </button>
+                        <small id="showIc">Aucun icon sélectionné</small>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 pl-3 pb-3 pr-3">
+                        {{ form_label(form.title) }}
+                        {{ form_widget(form.title) }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 p-3">
+                        {{ form_label(form.text) }}
+                        {{ form_widget(form.text) }}
+                    </div>
+                </div>
+                {{ form_widget(form) }}
+                <div class="row pt-4 pb-3">
+                    <div class="col">
+                        <button class="btn btn-block text-uppercase shadow bg-theme border-theme" type="submit">
+                            Enregistrer
+                        </button>
+                    </div>
+                </div>
+                {{ form_end(form) }}#}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Liste</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="table">
+                            <div class="table-body">
+                                {% if vps|length == 0 %}
+                                    <ul>
+                                        <li class="text-center">
+                                            <img class=" pt-4"
+                                                 src="{{ asset('img/framework/back/cloud-computing.png') }}"/>
+                                            <p class="font-weight-bold text-muted">Aucun point clé pour le moment</p>
+
+                                            <div>
+                                                <a href="{{ url('admin_edit_vp', {'id' : 0 }) }}"
+                                                   class="btn-icon text-theme"><span><i class="material-icons">add_circle_outline</i></span><span>Commencer l'édition des points clés</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% else %}
+                                    <ul>
+                                        {% for vp in vps %}
+                                            <li class="row">
+                                                <div class="col-sm-8">
+                                                    <i class="locale {{ vp.lang.code }}">{{ vp.lang.code }}</i>
+                                                    <h3 class="text-theme h6 m-0">{{ vp.title | truncate(30) }}</h3>
+                                                    <small>
+                                                        {{ vp.text | truncate(30) }}
+                                                    </small>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <a href="{{ url('admin_edit_vp', {'id' : vp.id }) }}"
+                                                           class="btn-dev">Modifier</a>
+                                                        <a href="{{ url('admin_remove_vp', {'id' : vp.id }) }}"
+                                                           class="btn-dev">Supprimer</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade modalIcons" tabindex="-1" role="dialog" aria-labelledby="modalIcons" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-2">
+                {{ render(controller('AppBundle:Back:listIcons')) }}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/vp.js') }}"></script>
+{% endblock %}

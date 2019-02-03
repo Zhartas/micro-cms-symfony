@@ -1,0 +1,223 @@
+{% extends '@views/front/layout.html.twig' %}
+{% block head_layout %}
+    <link rel="canonical"
+          href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/fullscreen.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/navHamburgeur.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/home.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/contact.css') }}"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+
+{% endblock %}
+{% block body_layout %}
+    <header id="headerFullscreen"
+            style="background-image: {% if images['accueil1'] is defined %}url({{ asset('img/img-user/'~images['accueil1'].name~'.'~images['accueil1'].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+        {% include '@views/front/vendor/navHamburgeur.html.twig' %}
+        {% include '@views/front/vendor/contactBtn.html.twig' %}
+        <div class="container-fluid position-absolute boxText">
+            <div class="row">
+                <div class="col pb-4 ">
+                    <strong class="font-weight-bold abstractWord text-right">{% if editor %}<i
+                                class="shadow edit-id d-none">1</i>{% endif %}{{ 'accueil.mot clé 1'|trans|nl2br }}
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col pb-4 position-relative">
+                    <strong class="font-weight-bold abstractWord last d-lg-none">{{ 'accueil.mot clé 2'|trans }}</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="w-90 p-3 bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                    <div class="h1">
+                        <h1 class="font-weight-bold">{% if editor %}<i
+                                    class="shadow edit-id d-none">3</i>{% endif %}{{ 'accueil.titre principal H1'|trans|nl2br }}
+                        </h1>
+                        <hr class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                        <p>{% if editor %}<i
+                                    class="shadow edit-id d-none">4</i>{% endif %}{{ 'accueil.titre secondaire H2'|trans|nl2br }}
+                        </p>
+                    </div>
+                    <a class="d-none text-dark d-lg-block float-right btn btn-lg shadow text-uppercase bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+                       href="{{ url('contact') }}" role="button"><i class="shadow edit-id d-none">49</i>{{ 'base.bouton de contact'|trans }}</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col pb-4">
+                    <strong class="abstractWord last p-4 d-none d-lg-block">{% if editor %}<i
+                                class="shadow edit-id edit-id-right d-none">2</i>{% endif %}{{ 'accueil.mot clé 2'|trans }}
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main role="main">
+        <section id="about" class="position-relative">
+            <strong class="abstractWord font-weight-bold d-none d-lg-block">{% if editor %}<i
+                        class="shadow edit-id d-none">5</i>{% endif %}{{ 'accueil.mot clé 3'|trans|nl2br }}</strong>
+            <strong class="abstractWord font-weight-bold d-none d-lg-block">{% if editor %}<i
+                        class="shadow edit-id d-none">6</i>{% endif %}{{ 'accueil.mot clé 4'|trans|nl2br }}</strong>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h2 class="h4 font-weight-bold border-title-theme position-relative text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{% if editor %}
+                                <i class="shadow edit-id d-none">7</i>{% endif %}{{ 'accueil.titre a propos'|trans|nl2br }}
+                        </h2>
+                        <p>{% if editor %}<i
+                                    class="shadow edit-id d-none">8</i>{% endif %}{{ 'accueil.paragraphe 1 a propos'|trans }}
+                        </p>
+                        <p>{% if editor %}<i
+                                    class="shadow edit-id d-none">9</i>{% endif %}{{ 'accueil.paragraphe 2 a propos'|trans }}
+                        </p>
+
+                        <a href="{{ url('contact') }}"
+                           class="btn text-uppercase text-dark btn-lg shadow bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{{ 'base.bouton de contact'|trans }}</a>
+
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-right d-none d-sm-block">
+                        <img src="{% if images['accueil2'] is defined %}{{ asset('img/img-user/'~images['accueil2'].name~'.'~images['accueil2'].extension) }}{% else %}https://source.unsplash.com/random/500x700{% endif %}"
+                             alt="{{ 'home.about.img.alt'|trans }}" title="{{ 'home.about.img.alt'|trans }}">
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% if services is defined and cards is defined %}
+            {% if cards|length > 0 or services|length > 0 %}
+                <section id="services"
+                         style="background-image: {% if images['accueil3'] is defined %}url({{ asset('img/img-user/'~images['accueil3'].name~'.'~images['accueil3'].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+
+                    <div id="headerServices" class="position-relative d-lg-none">
+                        <div class="container">
+                            <strong class="abstractWord text-light font">{{ 'accueil.mot clé 3'|trans|nl2br }}</strong>
+                            <strong class="abstractWord text-light font">{{ 'accueil.mot clé 4'|trans|nl2br }}</strong>
+                        </div>
+                    </div>
+
+                    <div class="boxText bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <h2 class="h5 text-light font-weight-bold">
+                                        <i class="shadow edit-id d-none text-uppercase">10</i>{{ 'accueil.titre services'|trans }}
+                                    </h2>
+                                    <p class="pt-2 position-relative">{% if editor %}<i
+                                                class="shadow edit-id d-none">11</i>{% endif %}{{ 'accueil.paragraphe 1 services'|trans }}
+                                    </p>
+                                    <hr class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                                    <p class="pt-2">{% if editor %}<i
+                                                class="shadow edit-id d-none">12</i>{% endif %}{{ 'accueil.paragraphe 2 services'|trans }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-none d-lg-block">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <a href="{{ url('contact') }}"
+                                           class="btn text-dark text-uppercase btn-lg shadow float-right bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{{ 'base.bouton de contact'|trans }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="services-slides">
+                        <div class="container">
+                            <div class="owl-carousel owl-theme">
+
+                                {% for card in cards %}
+                                    {% if card.lang.code == app.request.get('_locale') %}
+                                    <div class="cardService">
+                                        <span class="row full-height text-dark">
+                                            <div class="col-lg-3 col-sm-12">
+                                                {% if card.icon is not null %}
+                                                    <i class="material-icons">{{ card.icon }}</i>
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="col-lg-9 col-sm-12">
+                                                {% if card.title is not null %}
+                                                    <h3 class="h6">{{ card.title }}</h3>
+                                                    <hr class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                                                {% endif %}
+                                            </div>
+                                        </span>
+                                        <p class="mt-3 text-justify">
+                                            {{ card.text }}
+                                        </p>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+
+
+                                {% for service in services %}
+                                    {% if service.lang.code == app.request.get('_locale') %}
+                                    <div class="cardService">
+                                        <a class="row full-height text-dark"
+                                           href="{{ url('services', {'urlServices' : service.url}) }}">
+                                            <div class="col-lg-3 col-sm-12">
+                                                {% if service.icon is not null %}
+                                                    <i class="material-icons">{{ service.icon }}</i>
+                                                {% endif %}
+                                            </div>
+
+                                            <div class="col-lg-9 col-sm-12">
+                                                {% if service.icon is not null %}
+                                                    <h3 class="h6">{{ service.title }}</h3>
+                                                    <hr class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                                                {% endif %}
+                                            </div>
+                                        </a>
+                                        <p class="mt-3 text-justify">
+                                            {{ service.about }}
+                                        </p>
+                                        <a class="row full-height text-dark link-service text-dark btn btn-lg shadow text-uppercase bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+                                           href="{{ url('services', {'urlServices' : service.url}) }}">{{ "service.en savoir plus" | trans }}</a>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            {% endif %}
+        {% endif %}
+
+        <section id="motivational" class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %} shadow">
+            <div class="container">
+                <div class="row">
+                    <div class="col p-3 mt-3">
+                        <q class="font-weight-bold font-italic h5"><i
+                                    class="shadow edit-id d-none">13</i>{{ 'accueil.quote 1'|trans }}</q>
+                        <p class="font-weight-bold font-italic text-uppercase text-right pt-3"><i
+                                    class="shadow edit-id d-none">14</i>- {{ 'accueil.quote 2'|trans }}</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section id="contact"
+                 style="background-image: {% if images['accueil4'] is defined %}url({{ asset('img/img-user/'~images['accueil4'].name~'.'~images['accueil4'].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+            {% include '@views/front/contact/contact.html.twig' %}
+        </section>
+
+    </main>
+{% endblock %}
+
+    {% block js_layout %}
+        <script type="text/javascript"
+                src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="{{ asset('js/front/home.js') }}"></script>
+    {% endblock %}

@@ -1,0 +1,61 @@
+
+{% if admin is not empty %}
+    {% if admin.phone != '' %}
+        <button class="shadow text-dark contactBtn text-center bg-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}" id="contactBtnPhone" data-toggle="modal"
+                data-target="#contactPhone">
+            <i class="fas fa-mobile-alt fa-2x"></i>
+        </button>
+        <div class="modal fade text-center" id="contactPhone" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="pt-4">
+                        <div><i class="fas fa-mobile-alt fa-2x"></i></div>
+                        <p class="modal-title h6 text-uppercase" id="exampleModalLongTitle">
+                            {{ 'base.popup tel titre' | trans }}<i class="shadow edit-id d-none">50</i></p>
+                    </div>
+                    <div class="modal-body">
+                        <span class="text-primary">{{ admin.phone }}</span>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button"
+                                class="btn text-uppercase btn-lg shadow btn-block bg-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}"
+                                data-dismiss="modal">{{ 'base.popup tel bouton' | trans }}
+                            {% if editor %}<i
+                                    class="shadow edit-id d-none">51</i>{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if admin.email != '' %}
+        <button class="shadow text-dark contactBtn text-center bg-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}" id="contactBtnEmail" data-toggle="modal"
+                data-target="#contactEmail">
+            <i class="far fa-envelope-open fa-2x"></i>
+        </button>
+        <div class="modal fade text-center" id="contactEmail" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="pt-4">
+                        <div><i class="far fa-envelope-open fa-2x"></i></div>
+                        <p class="modal-title h6 text-uppercase" id="exampleModalLongTitle">
+                            {{ 'base.popup email titre' | trans }}<i class="shadow edit-id d-none">52</i>
+                           </p>
+                    </div>
+                    <div class="modal-body">
+                    <span class="text-primary">{{ admin.email }}</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button"
+                                class="btn text-uppercase btn-lg shadow btn-block bg-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}"
+                                data-dismiss="modal">{{ 'base.popup email bouton' | trans }}<i class="shadow edit-id d-none">53</i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endif %}

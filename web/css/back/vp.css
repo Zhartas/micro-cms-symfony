@@ -1,0 +1,15 @@
+#showIc{
+    position: absolute;
+    right: 9%;
+    top: 25px;
+    color: #525258;
+}
+#showIc i{
+    color: #525258;
+}
+
+i.locale{
+    position: absolute;
+    left: -20px;
+    top: 3px;
+}

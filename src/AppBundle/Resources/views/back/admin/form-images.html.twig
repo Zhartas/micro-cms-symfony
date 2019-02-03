@@ -1,0 +1,144 @@
+{% extends '@views/back/admin/index.html.twig' %}
+{% block form %}
+    <div class="container">
+        <div class="row" id="images">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Les images</h2>
+                <hr>
+                <p class="pb-1">Une image va être beaucoup plus attrayante pour les lecteurs qu’un contenu uniquement
+                    textuel. Vous pouvez gérer l'emplacement de vos photos et rédiger des informations complémentaires
+                    pour chaque photo afin d'optimiser son référecement !
+
+                </p>
+
+                <h2 class="pb-2 h5">Taille des images</h2>
+                <hr>
+                <p><strong>Photo header:</strong> 2560X1440 px</p>
+                <p><strong>Photo header service:</strong> 2560X500 px</p>
+                <p><strong>Photo portrait:</strong> 500x700 px</p>
+                <p><strong>Photo avatar:</strong> 150x150 px</p>
+
+                {% if is_granted('ROLE_MASTER') %}
+                    <h2 class="h5 pt-4">Reset images</h2>
+                    <hr>
+                    <strong class="danger">Des connaissances en PROGRAMMATION sont requis pour éffectuer cette
+                        action.</strong>
+                    <p class="pt-1">
+                        Re-sync images BDD
+                    </p>
+                    <a class="btn-dev mt-1 mb-4 text-uppercase" href="{{ url('admin_reset_images') }}">Re-sync</a>
+                {% endif %}
+                {% include '@views/back/btn-viewSite.html.twig' %}
+
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Images</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                {% for img in list_img %}
+                    <div class="row pb-4">
+                        <div class="col-sm-12 col-md-4 p-3 text-center">
+                            <img class="shadow" src="{{ asset('img/img-user/'~img.name~'.'~img.extension) }}"/>
+                        </div>
+                        <div class="col-sm-12 col-md-8 p-3">
+                            <form action="{{ url('admin_updateImages') }}" method="post" name="updateImage">
+                                <input type="hidden" value="{{ img.id }}" name="id">
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="{{ 'title'~img.name }}" class="">Tilte</label>
+                                        <input type="text" id="{{ 'title'~img.name }}" name="title" class="form-control"
+                                               value="{{ img.title }}" data-toggle="tooltip" data-placement="bottom"
+                                               title="Titre de l'image - 5 à 6 mots">
+                                        <small class="form-text text-muted text-right">
+                                            80 caractères max
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-12 pt-1">
+                                        <label for="{{ 'position'~img.name }}">Positionner l'image dans le site</label>
+                                        <select name="position" class="form-control" id="{{ 'position'~img.name }}"
+                                                data-toggle="tooltip" data-placement="top"
+                                                title="Modifier l'emplacement de la photo">
+                                            <option value="0"
+                                                    {% if img.position == 0 or img.position == null %}selected{% endif %}>
+                                                Ne pas
+                                                utiliser
+                                            </option>
+                                            <option value="accueil1"
+                                                    {% if img.position == 'accueil1' %}selected{% endif %}>Accueil -
+                                                Haut de page
+                                            </option>
+                                            <option value="accueil2"
+                                                    {% if img.position == 'accueil2' %}selected{% endif %}>Accueil -
+                                                Cible
+                                            </option>
+                                            <option value="accueil3"
+                                                    {% if img.position == 'accueil3' %}selected{% endif %}>Accueil -
+                                                Services
+                                            </option>
+                                            <option value="accueil4"
+                                                    {% if img.position == 'accueil4' %}selected{% endif %}>Accueil -
+                                                Contact
+                                            </option>
+                                            <option value="about1" {% if img.position == 'about1' %}selected{% endif %}>
+                                                A propos -
+                                                Haut de page
+                                            </option>
+                                            <option value="about2" {% if img.position == 'about2' %}selected{% endif %}>
+                                                A propos -
+                                                Portrait à propos
+                                            </option>
+                                            <option value="about3" {% if img.position == 'about3' %}selected{% endif %}>
+                                                A propos -
+                                                Citation
+                                            </option>
+                                            {% if services is defined and services is not null %}
+                                                {% for service in services %}
+                                                    {% if service.id is not null and service.title is not null %}
+                                                        <option value="serviceHeader{{ service.id }}"
+                                                                {% if img.position == 'serviceHeader'~service.id %}selected{% endif %}>
+                                                            service {{ service.title }} - Haut de page
+                                                        </option>
+                                                        <option value="serviceFooter{{ service.id }}"
+                                                                {% if img.position == 'serviceFooter'~service.id %}selected{% endif %}>
+                                                            service {{ service.title }} - Bas de page
+                                                        </option>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <option value="avatar"
+                                                        {% if img.position == 'avatar' %}selected{% endif %}>
+                                                    service - Avatar
+                                                </option>
+                                            {% endif %}
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="row pt-3 text-right">
+                                    <div class="col">
+                                        <div>
+                                            {% if is_granted('ROLE_MASTER') %}
+                                                <a class="btn-dev float-left mt-1 mb-4 text-capitalize" href="{{ url('admin_remove_images', {'id' : img.id }) }}">Supprimer l'image</a>
+                                            {% endif %}
+                                        </div>
+
+                                        <button class="btn btn-sm bg-theme border-theme text-uppercase shadow"
+                                                type="submit">
+                                            Enregistrer
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

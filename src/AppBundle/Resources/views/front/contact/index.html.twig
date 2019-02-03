@@ -1,0 +1,45 @@
+{% extends '@views/front/layout.html.twig' %}
+{% block title %}{{ 'title.contact' | trans }}{% endblock %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/navHamburgeur.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/contact.css') }}"/>
+    <link rel="canonical"
+          href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+    <style>
+        header nav {
+            background-color: #1b1b1b !important;
+        }
+
+        #boxContactNfo {
+            padding-top: 109px;
+        }
+
+        @media (min-width: 768px) {
+            #boxFormContact {
+                padding: 92px 15px 37px;
+            }
+        }
+
+        @media (min-width: 960px) {
+            #boxFormContact {
+                padding: 70px 15px 37px;
+            }
+        }
+    </style>
+  
+{% endblock %}
+{% block body_layout %}
+    <header>
+        {% include '@views/front/vendor/navHamburgeur.html.twig' %}
+    </header>
+    <main>
+        <section id="contact"
+                 style="background-image: {% if images['accueil4'] is defined %}url({{ asset('img/img-user/'~images['accueil4'].name~'.'~images['accueil4'].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+            {% include '@views/front/contact/contact.html.twig' %}
+        </section>
+    </main>
+{% endblock %}
+
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/front/vendor/navHamburgeur.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,133 @@
+<div>
+    <div class="container-fluid full-height">
+        <div class="row full-height">
+            <div class="col-sm-12 col-md-6" id="boxContactNfo">
+                <div class="container">
+                    <h2 class="h5 text-uppercase font-weight-bold border-title-theme position-relative text-light">
+                        {{ 'contact.title' | trans | nl2br }}<i class="shadow edit-id d-none">27</i>
+                    </h2>
+                    <div class="row bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                        {% if admin[0] is defined and admin[0].email != '' %}
+                            <div class="col-sm-12 p-2">
+                                <p class="text-light"><i
+                                            class="shadow edit-id d-none edit-id-left">28</i>{{ 'contact.email'| trans }}
+                                </p>
+                                <p class="font-weight-bold"><a
+                                            class="text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+                                            href="mailto:{{ admin[0].email }}">{{ admin[0].email }}</a>
+                                </p>
+                            </div>
+                        {% endif %}
+                        {% if admin[0] is defined and admin[0].phone != '' %}
+                            <div class="col-sm-12 p-2">
+                                <p class="text-light"><i
+                                            class="shadow edit-id d-none edit-id-left">29</i>{{ 'contact.phone'| trans }}
+                                </p>
+                                <p class="text-theme{% if site is not empty %}-{{ site.theme }}{% endif %} font-weight-bold">{{ admin[0].phone }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="row" id="boxSocialContact">
+                        <div class="col-sm-12 pt-4">
+                            {% if social is defined and social is not null %}
+                                {% if social.facebook != '' %}
+                                    <a target="_blank" href="{{ social.facebook }}" class="m-2"><i
+                                                class="fab fa-facebook-f socialNetwork"></i></a>
+                                {% endif %}
+                                {% if social.linkedin != '' %}
+                                    <a target="_blank" href="{{ social.linkedin }}" class="m-2"><i
+                                                class="fab fa-linkedin-in socialNetwork"></i></a>
+                                {% endif %}
+                                {% if social.instagram != '' %}
+                                    <a class="m-2" target="_blank" href="{{ social.instagram }}"><i
+                                                class="fab fa-instagram socialNetwork"></i></a>
+                                {% endif %}
+                                {% if social.twitter != '' %}
+                                    <a class="m-2" target="_blank" href="{{ social.twitter }}"><i
+                                                class="fab fa-twitter socialNetwork"></i></a>
+                                {% endif %}
+                                {% if social.youtube != '' %}
+                                    <a class="m-2" target="_blank" href="{{ social.youtube }}"><i
+                                                class="fab fa-youtube socialNetwork"></i></a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6" id="boxFormContact">
+
+                {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {% if editor %}
+                            <i class="shadow edit-id d-none edit-id-right">30</i>
+                        {% endif %}
+
+                        {{ form_label(form.firstname) }}<span>*</span>
+                        {{ form_widget(form.firstname) }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {% if editor %}
+                            <i class="shadow edit-id d-none edit-id-right">31</i>
+                        {% endif %}
+                        {{ form_label(form.lastname) }}<span>*</span>
+                        {{ form_widget(form.lastname) }}
+                    </div>
+                </div>
+                <div class="mb-3">
+                    {% if editor %}
+                        <i class="shadow edit-id d-none edit-id-right">32</i>
+                    {% endif %}
+                    {{ form_label(form.society) }}
+                    {{ form_widget(form.society) }}
+                </div>
+                <div class="mb-3">
+                    {% if editor %}
+                        <i class="shadow edit-id d-none edit-id-right">33</i>
+                    {% endif %}
+                    {{ form_label(form.email) }}<span>*</span>
+                    {{ form_widget(form.email) }}
+                </div>
+
+                <div class="mb-3">
+                    {% if editor %}
+                        <i class="shadow edit-id d-none edit-id-right">34</i>
+                    {% endif %}
+                    {{ form_label(form.phone) }}
+                    {{ form_widget(form.phone) }}
+                </div>
+
+                <div class="mb-3">
+                    {% if editor %}
+                        <i class="shadow edit-id d-none edit-id-right">35</i>
+                    {% endif %}
+                    {{ form_label(form.message) }}<span>*</span>
+                    {{ form_widget(form.message) }}
+                </div>
+
+                <div class="mb-1">
+                    <label class="d-block">Captcha<span>*</span></label>
+                    <div class="g-recaptcha d-inline-block" data-sitekey="6Lf2x44UAAAAADTtUpcyLrk3ikhcRkTWVXrbx46X"></div>
+                </div>
+                <div class="pt-4">
+
+
+                
+                    <button data-toggle="modal" data-target="#exampleModal"
+                            class="btn text-uppercase btn-lg shadow btn-block bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+                            type="submit">{{ 'formulaire.bouton' | trans }}
+                        {% if editor %}
+                            <i class="shadow edit-id-right edit-id d-none">42</i>
+                        {% endif %}
+                    </button>
+                </div>
+
+                {{ form_end(form) }}
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

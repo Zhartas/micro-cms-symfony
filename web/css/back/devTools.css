@@ -1,0 +1,40 @@
+@media (min-width: 992px) {
+    #devTools {
+        position: fixed;
+        left: 0;
+        width: 45px;
+        top: 30%;
+        background: #111625;
+        left: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 5px 0;
+        z-index: 999;
+        transition: all ease 100ms;
+    }
+
+    #devTools a, #devTools button {
+        height: 50px;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        background: #111625 !important;
+        cursor: pointer;
+        border: none;
+        color: #f7f7f7 !important;
+    }
+
+    #devTools:hover {
+        transform: scale(1.1);
+    }
+
+    #devTools a:hover, #devTools button:hover {
+        color: #ff5a5f !important;
+    }
+
+    #devTools a i {
+        position: relative;
+        top: 13px;
+    }
+}
+

@@ -1,0 +1,83 @@
+<nav class="navbar fixed-top navbar-light" id="navHamburgeur">
+    <a class="navbar-brand" href="{{ url('home') }}"><img src="{{ asset('img/img-user/utilities/main-logo.png') }}"
+                                                          alt="{{ 'layout.header.logo.alt'|trans }}"></a>
+    <button class="btnNavigation shadow navbar-toggler bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+            type="button" data-toggle="collapse" aria-controls="mainNavigation" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="text-dark text-uppercase">Menu </span><span><i class="fas fa-bars"></i></span>
+    </button>
+    {% if locales is not empty and locales|length > 1 %}
+        <div id="choose-lang">
+            <button type="button" data-toggle="modal" data-target="#localeModal">
+                <span class="w-25"><i class="{{ app.request.locale }}">{{ app.request.locale }}</i></span>
+                <span class="text-capitalize w-75 text-dark font-weight-bold">{{ app.request.locale }}</span>
+            </button>
+        </div>
+    {% endif %}
+</nav>
+
+<nav class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+     id="mainNavigation">
+    <button type="button" class="close btnNavigation" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <ul class="w-90">
+        <li class="nav-item {% if currentPage is defined and currentPage == "home" %}active{% endif %}">
+            <a class="nav-link text-uppercase"
+               href="{{ url('home') }}">{{ 'navigation.lien 1'|trans({}) }}{% if editor %}<i
+                        class="shadow edit-id d-none">43</i>{% endif %}</a>
+        </li>
+
+
+        {% if services is defined and services is not empty %}
+            <li class="nav-item {% if currentPage is defined and currentPage == "services" %}active{% endif %}">
+                <p class="nav-link text-uppercase m-0">{{ 'navigation.lien 2'|trans }}{% if editor %}<i
+                            class="shadow edit-id d-none">44</i>{% endif %}</p>
+                <ul>
+                    {% for service in services %}
+                        {% if service.lang.code == app.request.get('_locale') %}
+                            <li><a class="text-dark"
+                                   href="{{ url('services', {'urlServices' : service.url}) }}">{{ service.title }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endif %}
+
+        <li class="nav-item {% if currentPage is defined and currentPage == "about" %}active{% endif %}">
+            <a class="nav-link text-uppercase"
+               href="{{ url('about') }}">{{ 'navigation.lien 3'|trans({}) }}{% if editor %}<i
+                        class="shadow edit-id d-none">45</i>{% endif %}</a>
+        </li>
+
+        <li class="nav-item {% if currentPage is defined and currentPage == "contact" %}active{% endif %}">
+            <a class="nav-link text-uppercase"
+               href="{{ url('contact', {'_locale' : app.request.locale }) }}">{{ 'navigation.lien 4'|trans({}) }}{% if editor %}
+                    <i class="shadow edit-id d-none">46</i>{% endif %}</a>
+        </li>
+        <li class="p-3">
+            {% if social is defined and social is not null %}
+                {% if social.facebook != '' %}
+                    <a target="_blank" href="{{ social.facebook }}" class="m-2 d-inline-block"><i
+                                class="fab fa-facebook-f socialNetwork"></i></a>
+                {% endif %}
+                {% if social.linkedin != '' %}
+                    <a target="_blank" href="{{ social.linkedin }}" class="m-2 d-inline-block"><i
+                                class="fab fa-linkedin-in socialNetwork"></i></a>
+                {% endif %}
+                {% if social.instagram != '' %}
+                    <a class="m-2 d-inline-block" target="_blank" href="{{ social.instagram }}"><i
+                                class="fab fa-instagram socialNetwork"></i></a>
+                {% endif %}
+                {% if social.twitter != '' %}
+                    <a class="m-2 d-inline-block" target="_blank" href="{{ social.twitter }}"><i
+                                class="fab fa-twitter socialNetwork"></i></a>
+                {% endif %}
+                {% if social.youtube != '' %}
+                    <a class="m-2 d-inline-block" target="_blank" href="{{ social.youtube }}"><i
+                                class="fab fa-youtube socialNetwork"></i></a>
+                {% endif %}
+            {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,259 @@
+{% extends '@views/back/admin/index.html.twig' %}
+{% block form %}
+    <div id="gestion" class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Administration du site</h2>
+                <hr>
+                <p class="pb-1">Mettez à jour vos informations du site, votre indentité, votre nom complet, votre
+                    adresse e-mail et votre numéro de téléphone. </p>
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="pb-5">
+                    {{ form_start(formAdmin) }}
+
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="h5">Site en ligne/construction</h2>
+                            <hr>
+                            <p>Vous pouvez activer ou désactiver le mode construction du site. Le contenu du site sera
+                                entièrement masqué pour les internautes.</p>
+                            <div class="custom-control custom-checkbox my-1 mr-sm-2 pt-2 pb-5">
+                                {{ form_widget(formAdmin.constructor) }}
+                                {{ form_label(formAdmin.constructor, null, {'label_attr': {'class': 'custom-control-label'}}) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row no-gutters header-form">
+                        <div class="col">
+                            <h2 class="h5">Identité et contact</h2>
+                            <hr>
+                            <p>Les informations de contact sont visible par les internautes afin de pouvoir vous
+                                contacter directement sur votre site internet. <br>Pour ne pas faire apparaitre
+                                certaines information, veuillez laisser le champ concerné "vide".</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 pt-2 pb-2">
+                            {{ form_label(formAdmin.firstname) }}
+                            {{ form_widget(formAdmin.firstname) }}
+                        </div>
+                        <div class="col-sm-12 col-md-6 pt-2 pb-2">
+                            {{ form_label(formAdmin.lastname) }}
+                            {{ form_widget(formAdmin.lastname) }}
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 pt-2 pb-2">
+                            {{ form_label(formAdmin.email) }}
+                            {{ form_widget(formAdmin.email) }}
+                        </div>
+                        <div class="col-sm-12 col-md-6 pt-2 pb-2">
+                            {{ form_label(formAdmin.phone) }}
+                            {{ form_widget(formAdmin.phone) }}
+                        </div>
+
+                    </div>
+
+
+                    <div class="row no-gutters header-form pt-5">
+                        <div class="col">
+                            <h2 class="h5">Localisation</h2>
+                            <hr>
+                            <p>Les informations de localisations sont indispensables afin que les internautes puissent
+                                vous localiser. <br>Pour ne pas faire apparaitre certaines information, veuillez laisser
+                                le champ concerné "vide".</p>
+
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col pt-2">
+                            {{ form_label(formAdmin.address) }}
+                            {{ form_widget(formAdmin.address) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 pt-2 pb-2">
+                            {{ form_label(formAdmin.cp) }}
+                            {{ form_widget(formAdmin.cp) }}
+                        </div>
+                        <div class="col-sm-6 pt-2 pb-2">
+                            {{ form_label(formAdmin.city) }}
+                            {{ form_widget(formAdmin.city) }}
+                        </div>
+                    </div>
+                    <div class="row pt-5 pb-3">
+                        <div class="col">
+                            <button class="btn btn-block bg-theme border-theme text-uppercase shadow float-right"
+                                    type="submit">
+                                Enregistrer
+                            </button>
+                        </div>
+                    </div>
+
+                    {{ form_end(formAdmin) }}
+                </div>
+
+                <div>
+                    {{ form_start(formSite) }}
+
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="h5">Information du site</h2>
+                            <hr>
+                        </div>
+                    </div>
+
+                    <div class="row pb-3">
+                        <div class="col-sm-6 p-3">
+                            {{ form_label(formSite.sitename) }}
+                            {{ form_widget(formSite.sitename) }}
+                        </div>
+                        <div class="col-sm-6 p-3">
+                            {{ form_label(formSite.url) }}
+                            {{ form_widget(formSite.url) }}
+                            <small class="form-text text-muted ml-1">Format URL indispensable
+                                (https://www.monsite.com)
+                            </small>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="h5">SEO</h2>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-sm-12 col-md-6 p-3">
+                            <div class="form-group files">
+                                {{ form_widget(formSite.imageFile) }}
+
+                            </div>
+                            <div class="form-group pt-4 text-center">
+                                <label class="btn-dev border-theme text-uppercase shadow p-3"
+                                       for="appbundle_site_imageFile_file">
+                                    Télécharger une photo
+                                </label>
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 p-3">
+                            <div class="form-group">
+                                {% if  formSite.vars.value.image is not null %}
+                                    <img id="showImg" src="{{ asset('uploads/images/seo/'~formSite.vars.value.image) }}"
+                                         class="shadow">
+                                    {% else %}
+                                        <img id="showImg" src=""
+                                             alt="">
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="row pb-3">
+                        <div class="col-sm-12 p-3">
+                            {{ form_label(formSite.metaTitle) }}
+                            {{ form_widget(formSite.metaTitle) }}
+                            <small class="form-text text-muted ml-1">Format URL indispensable
+                                60 Charactères MAX
+                            </small>
+                        </div>
+                        <div class="col-sm-12 p-3">
+                            {{ form_label(formSite.metaDescription) }}
+                            {{ form_widget(formSite.metaDescription) }}
+                            <small class="form-text text-muted ml-1">Format URL indispensable
+                                300 Charactères MAX
+                            </small>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="h5">Thème couleur</h2>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='jaune' %}active{% endif %}">
+                                <span class="bg-theme-jaune"></span>
+                                <span class="font-weight-bold">jaune</span>
+                            </div>
+                        </div>
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='turquoise' %}active{% endif %}">
+                                <span class="bg-theme-turquoise"></span>
+                                <span class="font-weight-bold">turquoise</span>
+                            </div>
+                        </div>
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='framboise' %}active{% endif %}">
+                                <span class="bg-theme-framboise"></span>
+                                <span class="font-weight-bold">framboise</span>
+                            </div>
+                        </div>
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='cobalt' %}active{% endif %}">
+                                <span class="bg-theme-cobalt"></span>
+                                <span class="font-weight-bold">cobalt</span>
+                            </div>
+                        </div>
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='ambre' %}active{% endif %}">
+                                <span class="bg-theme-ambre"></span>
+                                <span class="font-weight-bold">ambre</span>
+                            </div>
+                        </div>
+
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='menthe' %}active{% endif %}">
+                                <span class="bg-theme-menthe"></span>
+                                <span class="font-weight-bold">menthe</span>
+                            </div>
+                        </div>
+
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='cyan' %}active{% endif %}">
+                                <span class="bg-theme-cyan"></span>
+                                <span class="font-weight-bold">cyan</span>
+                            </div>
+                        </div>
+
+                        <div class="col col-md-3 col-lg-2 text-center mb-2">
+                            <div class="m-auto card-color-theme {% if formSite.vars.data.theme is defined and formSite.vars.data.theme is not empty and formSite.vars.data.theme =='gold' %}active{% endif %}">
+                                <span class="bg-theme-gold"></span>
+                                <span class="font-weight-bold">gold</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row pt-4 pb-3">
+                        <div class="col">
+                            <button class="btn btn-block bg-theme border-theme text-uppercase shadow float-right"
+                                    type="submit">
+                                Enregistrer
+                            </button>
+                        </div>
+                    </div>
+
+                    {{ form_end(formSite) }}
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+
+

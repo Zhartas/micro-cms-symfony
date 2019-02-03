@@ -1,0 +1,169 @@
+# BACK
+
+# authentification
+admin_authentification:
+    path:    /admin/authentification
+    defaults: { _controller: AppBundle:Security:authentification }
+
+admin_logout:
+    path:    /logout
+
+admin_icons:
+    path:    /admin/listIcons
+    defaults: { _controller: AppBundle:Back:listIcons }
+
+admin_devTools:
+    path:    /admin/admin_devTools/{action}
+    defaults: { _controller: AppBundle:Back:devTools }
+
+admin_social:
+    path:    /admin/social
+    defaults: { _controller: AppBundle:Back:social }
+
+admin_images:
+    path:    /admin/images
+    defaults: { _controller: AppBundle:Back:images }
+
+admin_updateImages:
+    path:    /admin/updateImages
+    defaults: { _controller: AppBundle:Back:updateImages }
+
+admin_reset_images:
+    path:    /admin/reset_images
+    defaults: { _controller: AppBundle:Back:resetImages }
+
+admin_remove_images:
+    path:    /admin/remove_images/{id}
+    defaults: { _controller: AppBundle:Back:removeImages }
+
+admin_translations:
+    path:    /admin/translations
+    defaults: { _controller: AppBundle:Back:translations }
+
+showSite:
+    path:    /admin/showSite
+    defaults: { _controller: AppBundle:Back:showSite }
+
+admin_translations_lang:
+    path:    /admin/translations/{l}
+    defaults: { _controller: AppBundle:Back:translationsLang }
+
+admin_updateTranslations:
+    path:    /admin/updateTranslations/{l}
+    defaults: { _controller: AppBundle:Back:updateTranslations }
+
+admin_uploadTranslations:
+    path:    /admin/uploadTranslations
+    defaults: { _controller: AppBundle:Back:uploadTranslations }
+
+admin_reset_lang:
+    path:    /admin/admin_reset_lang
+    defaults: { _controller: AppBundle:Back:resetLang }
+
+admin_syncTranslations:
+    path:    /admin/syncTranslations
+    defaults: { _controller: AppBundle:Back:syncTranslations }
+
+admin_timeline:
+    path:    /admin/timeline
+    defaults: { _controller: AppBundle:BackTimeline:index }
+
+admin_timeline_edit:
+    path:    /admin/timeline_edit/{id}
+    defaults: { _controller: AppBundle:BackTimeline:edit }
+
+admin_timeline_remove:
+    path:    /admin/timeline_remove/{id}
+    defaults: { _controller: AppBundle:BackTimeline:remove }
+
+admin_resume:
+    path:    /admin/resume
+    defaults: { _controller: AppBundle:BackResume:index }
+
+admin_resume_edit:
+    path:    /admin/resume_edit/{id}
+    defaults: { _controller: AppBundle:BackResume:edit }
+
+admin_resume_remove:
+    path:    /admin/resume_remove/{id}
+    defaults: { _controller: AppBundle:BackResume:remove }
+
+admin_card:
+    path:    /admin/card
+    defaults: { _controller: AppBundle:BackCard:index }
+
+admin_card_edit:
+    path:    /admin/card_edit/{id}
+    defaults: { _controller: AppBundle:BackCard:edit }
+
+admin_card_remove:
+    path:    /admin/card_remove/{id}
+    defaults: { _controller: AppBundle:BackCard:remove }
+
+admin_services:
+    path:    /admin/services/
+    defaults: { _controller: AppBundle:BackServices:index }
+
+admin_edit_service:
+    path:    /admin/edit-service/{url}
+    defaults: { _controller: AppBundle:BackServices:edit }
+
+admin_remove_service:
+    path:    /admin/remove-service/{id}
+    defaults: { _controller: AppBundle:BackServices:remove }
+
+admin_mentions:
+    path:    /admin/mentions
+    defaults: { _controller: AppBundle:BackMention:index }
+
+admin_vp:
+    path:    /admin/vp
+    defaults: { _controller: AppBundle:BackVp:index }
+
+admin_edit_vp:
+    path:    /admin/edit-vp/{id}
+    defaults: { _controller: AppBundle:BackVp:edit }
+
+admin_remove_vp:
+    path:    /admin/remove-vp/{id}
+    defaults: { _controller: AppBundle:BackVp:remove }
+
+# DEV
+admin_cache_clear:
+    path:    /admin/cache_clear
+    defaults: { _controller: AppBundle:BackUtilities:cache }
+
+admin_updateBDD:
+    path:    /admin/updateBDD
+    defaults: { _controller: AppBundle:BackUtilities:updateBDD }
+
+admin_gestion:
+    path:    /admin/gestion
+    defaults: { _controller: AppBundle:Back:index }
+
+
+# FRONT
+home:
+    path:    /{_locale}
+    defaults: { _controller: AppBundle:Home:index, _locale: %locale%  }
+
+about:
+    path:    /about/{_locale}
+    defaults: { _controller: AppBundle:About:index, _locale: %locale% }
+
+services:
+    path:    /services/{urlServices}/{_locale}
+    defaults: { _controller: AppBundle:Services:index, _locale: %locale% }
+
+contact:
+    path:    /contact/{_locale}
+    defaults: { _controller: AppBundle:Contact:index, _locale: %locale% }
+
+mentions-legales:
+    path:    /mentions-legales/{_locale}
+    defaults: { _controller: AppBundle:Cgu:mentions, _locale: %locale% }
+
+cookies:
+    path:    /cookies/{_locale}
+    defaults: { _controller: AppBundle:Cgu:cookies, _locale: %locale% }
+

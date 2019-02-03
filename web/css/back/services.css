@@ -1,0 +1,29 @@
+.table ul li{
+    line-height: 2;
+    padding: .5rem 0 0 0;
+}
+
+.deleteBenefit{
+    background: white !important;
+    color: #ff5a5f !important;
+    font-weight: 500 !important;
+    border: none !important;
+    cursor: pointer;
+}
+
+.benefits li .btn-dev{
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.benefits li >  div{
+    display: inline-block;
+    width: 100%;
+}
+
+i.locale{
+    position: absolute;
+    left: -20px;
+    top: 3px;
+}

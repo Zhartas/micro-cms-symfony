@@ -1,0 +1,97 @@
+{% extends '@views/back/layout.html.twig' %}
+{% block title %}{{ 'home.title'| trans }}{% endblock %}
+    {% block head_layout %}
+        <link rel="stylesheet" href="{{ asset('css/back/time-line.css') }}"/>
+    {% endblock %}
+ {% block header_layout %}
+     {% include '@views/back/header.html.twig' %}
+ {% endblock %}
+{% block main_layout %}
+    <div class="container">
+        <div class="row pb-5">
+            <h1>Ma timeline</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Timeline</h2>
+                <hr>
+                <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis cumque
+                    deserunt dicta
+                    dignissimos ea eaque eius et fugiat harum illo illum, nemo numquam porro quae quibusdam quos rem
+                    unde!</p>
+
+
+                <div>
+                    <a href="{{ url('admin_timeline_edit', {'id' : 0 }) }}"
+                       class="btn-icon text-theme"><span><i class="material-icons">add_circle_outline</i></span><span>Compléter la timeline</span>
+                    </a>
+                </div>
+                {% include '@views/back/btn-viewSite.html.twig' %}
+
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Liste</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        <div class="table">
+                            <div class="table-body">
+                                {% if timelines|length == 0 %}
+                                    <ul>
+                                        <li class="text-center">
+                                            <img class=" pt-4"
+                                                 src="{{ asset('img/framework/back/cloud-computing.png') }}"/>
+                                            <p class="font-weight-bold text-muted">Aucune timeline pour le moment</p>
+
+                                            <div>
+                                                <a href="{{ url('admin_timeline_edit', {'id' : 0 }) }}"
+                                                   class="btn-icon text-theme"><span><i class="material-icons">add_circle_outline</i></span><span>Commencer l'édition de la timeline</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% else %}
+                                    <ul>
+                                        {% for timeline in timelines %}
+                                            <li class="row">
+                                                <div class="col-sm-8">
+                                                    <i class="locale {{ timeline.lang.code }}">{{ timeline.lang.code }}</i>
+                                                    <h3 class="text-theme h6 m-0">{{ timeline.title | truncate(30) }}</h3>
+                                                    <small>
+                                                        {{ timeline.dateStart }} -
+                                                        {% if timeline.dateEnd is not null %}
+                                                            {{ timeline.dateEnd }}
+                                                        {% else %}
+                                                            <em>{% if timeline.status == "now" %}En cours{% elseif timeline.status == 'no' %}Aucune date{% else %}Aucune date{% endif %}</em>
+                                                        {% endif %}
+                                                    </small>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div>
+                                                        <a href="{{ url('admin_timeline_edit', {'id' : timeline.id }) }}"
+                                                           class="btn-dev">Modifier</a>
+                                                        <a href="{{ url('admin_timeline_remove', {'id' : timeline.id }) }}"
+                                                           class="btn-dev">Supprimer</a>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                        {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/timeline.js') }}"></script>
+{% endblock %}

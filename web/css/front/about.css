@@ -1,0 +1,278 @@
+#headerFullscreen {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 100%
+}
+
+#about {
+    padding: 35px 0 4px
+}
+
+#about h2 span {
+    line-height: .9
+}
+
+#about #boxSocial {
+    min-height: 400px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    -o-background-size: cover;
+    position: relative;
+    margin-bottom: 5px
+}
+
+#about #boxSocial:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .2);
+    color: white
+}
+
+#about #boxSocial>div {
+    position: absolute;
+    z-index: 2;
+    bottom: 20px
+}
+
+#about #boxSocial div {
+    margin-top: 20px
+}
+
+#about #boxSocial>div a {
+    margin: 0 20px 0 0
+}
+
+.skills {
+    padding-bottom: 10px
+}
+
+.skills p {
+    margin: 0
+}
+
+.skills i {
+    color: #1b1b1b;
+    background: white;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 2.2rem;
+    position: relative;
+    bottom: 5px;
+    line-height: 1.9;
+    margin-top: 10px;
+}
+
+.skills>div {
+    background: #f1f1f1;
+    padding: 10px 5px;
+    display: inline-block;
+    width: 90%;
+    margin: 5px auto
+}
+
+#coaching {
+    padding: 35px 0
+}
+
+
+
+#coaching .cardCoaching {
+    padding: 20px 15px
+}
+
+#coaching .cardCoaching > i {
+    border: 2px solid;
+    height: 90px;
+    width: 90px;
+    font-size: 3rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+body #motivational {
+    color: white;
+    position: relative;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    -o-background-size: cover
+}
+
+body #motivational:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .2)
+}
+
+body #motivational q,
+body #motivational cite {
+    width: 100%
+}
+
+body #motivational .container {
+    z-index: 2;
+    position: relative
+}
+
+body #motivational cite {
+    position: relative;
+    right: 10%
+}
+
+@media(min-width:768px) {
+    #about,
+    #coaching {
+        padding: 75px 0
+    }
+    #about img {
+        width: 90%;
+        box-shadow: 0 2px 18px 0 rgba(0, 0, 0, .3)
+    }
+    #about #boxSocial {
+        display: none;
+        background: inherit;
+        min-height: 0
+    }
+    .skills-desk {
+        display: none;
+        padding-top: 50px
+    }
+    .skills>div {
+        padding: 23px;
+        box-shadow: 0 2px 18px 0 rgba(0, 0, 0, .2)
+    }
+    .main-timeline {
+        padding-top: 0
+    }
+    #coaching #headerCoaching {
+        text-align: center
+    }
+    #coaching #headerCoaching h2 {
+        font-size: 2.5rem
+    }
+    #coaching #headerCoaching p {
+        opacity: .2;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+        font-size: 2.5rem;
+        line-height: .2;
+        margin-bottom: 60px
+    }
+    #coaching p {
+        text-align: center!important
+    }
+    body #motivational {
+        padding: 200px 15px 100px
+    }
+    body #motivational q,
+    body #motivational cite {
+        width: 85%;
+        margin: 0 auto
+    }
+}
+
+@media(min-width:960px) {
+    #headerFullscreen {
+        background-attachment: fixed
+    }
+    #headerFullscreen strong {
+        right: 0;
+
+    }
+
+    #about,
+    #coaching {
+        padding: 150px 0
+    }
+    #about #boxSocial:after {
+        content: none
+    }
+    .skills>div {
+        box-shadow: none
+    }
+    .skills {
+        display: flex;
+        background: #f1f1f1;
+        z-index: 9;
+        padding: 0 5px;
+        margin-top: 20px;
+        box-shadow: 0 2px 18px 0 rgba(0, 0, 0, .2)
+    }
+    .skills>div {
+        width: 80%
+    }
+    #about img {
+        z-index: 2;
+        position: relative
+    }
+    #about #boxSocialContactDesktop {
+        position: relative;
+        z-index: 4
+    }
+    .main-timeline {
+        padding-top: 190px
+    }
+    #coaching #headerCoaching h2 {
+        font-size: 2rem;
+        padding-bottom: 5px;
+    }
+    #coaching #headerCoaching p {
+        font-size: 2rem
+    }
+    #coaching .cardCoaching > i {
+        height: 120px;
+        width: 120px;
+        font-size: 5rem;
+        line-height: 1.6;
+    }
+    #coaching .cardCoaching {
+        padding: 70px 15px 0
+    }
+    body #motivational q,
+    body #motivational cite {
+        width: 100%;
+        font-size: 18px
+    }
+}
+
+@media(min-width:1920px) {
+    .skills{
+        margin-top: 1rem;
+    }
+    .skills i {
+        font-size: 2rem;
+    }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    .skills{
+        top: 27%;
+        left: 0;
+        z-index: 3;
+    }
+
+
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    .main-timeline:before{
+        top: 5px !important;
+    }
+}

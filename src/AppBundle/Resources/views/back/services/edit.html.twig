@@ -1,0 +1,138 @@
+{% extends '@views/back/layout.html.twig' %}
+    {% block head_layout %}
+        <link rel="stylesheet" href="{{ asset('css/back/services.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/back/textarea-editor.css') }}"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    {% endblock %}
+  {% block header_layout %}
+      {% include '@views/back/header.html.twig' %}
+  {% endblock %}
+{% block main_layout %}
+
+    <div class="container">
+        <div class="row pb-5">
+            <h1>Mes services</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div>
+                    <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis
+                        cumque
+                        deserunt dicta
+                        dignissimos ea eaque eius et fugiat harum illo illum, nemo numquam porro quae quibusdam quos rem
+                        unde!</p>
+                </div>
+
+
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Listes des services</h2>
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        {{ form_start(form) }}
+
+                        <div class="row mt-3 mb-5">
+                            <div class="col-sm-12">
+                                <span class="errors-form">{{ form_errors(form.title) }}</span>
+                                {{ form_label(form.title) }}
+                                {{ form_widget(form.title) }}
+                            </div>
+
+                        </div>
+                        <div class="row mt-3 mb-5">
+                            <div class="col-sm-12">
+                                <span class="errors-form">{{ form_errors(form.lang) }}</span>
+                                {{ form_label(form.lang) }}
+                                {{ form_widget(form.lang) }}
+                            </div>
+
+                        </div>
+
+                        <div class="row pt-3 pb-3">
+
+                            <div class="col-sm-6">
+                                <label for="selectIcon" class="w-100 pb-1">Choix d'un icon</label>
+                                <button type="button" id="selectIcon" class="btn-dev btn-primary" data-toggle="modal"
+                                        data-target=".modalIcons">Choisir
+                                </button>
+                                <small id="showIc" class="float-right pt-2">Aucun icon sélectionné</small>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="errors-form">{{ form_errors(form.url) }}</span>
+                                {{ form_label(form.url) }}
+                                {{ form_widget(form.url) }}
+                            </div>
+
+                        </div>
+
+                        <div class="row mt-3 mb-5">
+                            <div class="col-sm-12">
+                                <span class="errors-form">{{ form_errors(form.about) }}</span>
+                                {{ form_label(form.about) }}
+                                {{ form_widget(form.about) }}
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-5">
+                            <div class="col-sm-12">
+                                <span class="errors-form">{{ form_errors(form.text) }}</span>
+                                {{ form_label(form.text) }}
+                                {{ form_widget(form.text) }}
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-5">
+                            <div class="col-sm-12">
+                                <span class="errors-form">{{ form_errors(form.message) }}</span>
+                                {{ form_label(form.message) }}
+                                {{ form_widget(form.message) }}
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-5">
+                            <div class="col-sm-12">
+                                <p class="font-weight-bold">Ajouter/supprimer un avantage</p>
+                                <ul class="benefits p-0" data-prototype="{{ form_widget(form.benefits.vars.prototype)|e('html_attr') }}">
+                                    {% for benefit in form.benefits %}
+                                        <li>{{ form_row(benefit.text) }}</li>
+                                        <button type="button" class="deleteBenefit float-right mb-4">Supprimer de la liste</button>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row pt-5 pb-3">
+                            <div class="col">
+                                <button class="btn btn-block bg-theme border-theme text-uppercase shadow float-right" type="submit">
+                                    Enregistrer
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade modalIcons" tabindex="-1" role="dialog" aria-labelledby="modalIcons" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-2">
+                {{ render(controller('AppBundle:Back:listIcons')) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/textarea-editor.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/back/services.js') }}"></script>
+{% endblock %}

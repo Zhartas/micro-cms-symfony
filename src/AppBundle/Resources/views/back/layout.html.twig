@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    <title>Administration</title>
+    <link rel="stylesheet" href="{{ asset('css/back/layout.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/back/devTools.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/dragAndDrop.css') }}"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    {% block head_layout %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+    {% block header_layout %}{% endblock %}
+    <main role="main">
+        {% block main_layout %}{% endblock %}
+    </main>
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/back/jquery.sticky.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/back/core.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/back/devTools.js') }}"></script>
+    {% block js_layout %}{% endblock %}
+{% endblock %}

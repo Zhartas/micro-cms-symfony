@@ -1,0 +1,44 @@
+main {
+    margin: 0;
+}
+
+#auth img {
+    max-width: 100px;
+}
+
+#auth #nfo i {
+    background: white;
+    z-index: 1;
+    position: relative;
+}
+
+#auth #nfo hr {
+    position: relative;
+    top: 29px;
+    z-index: 0;
+}
+
+#auth input {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+#auth .text-danger i {
+    position: relative;
+    top: 7px;
+}
+
+@media (min-width: 768px) {
+    #auth {
+        max-width: 600px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #auth form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}

@@ -1,0 +1,103 @@
+{% extends '@views/back/layout.html.twig' %}
+    {% block head_layout %}
+    {% endblock %}
+  {% block header_layout %}
+      {% include '@views/back/header.html.twig' %}
+  {% endblock %}
+{% block main_layout %}
+
+    <div class="container">
+        <div class="row pb-5">
+            <h1>Résumé</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div>
+                    <p class="pb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus blanditiis
+                        cumque
+                        deserunt dicta
+                        dignissimos ea eaque eius et fugiat harum illo illum, nemo numquam porro quae quibusdam quos rem
+                        unde!</p>
+                </div>
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Création/modification du résumé</h2>
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+                        <div class="row pt-3 pb-3">
+
+                            <div class="col-sm-12 col-md-6 pl-3 pb-3 pr-3">
+                                {{ form_label(form.lang) }}
+                                {{ form_widget(form.lang) }}
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <label for="selectIcon" class="w-100 pb-1">Choix d'un icon</label>
+                                <button type="button" id="selectIcon" class="btn-dev btn-primary" data-toggle="modal"
+                                        data-target=".modalIcons">Choisir
+                                </button>
+                                {% if form.vars.value.icon is null %}
+                                    <small id="showIc">Aucun icon sélectionné</small>
+                                {% else %}
+                                    <small id="showIc">
+                                        <i class="material-icons">{{ form.vars.value.icon }}</i>
+                                    </small>
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 pl-3 pb-3 pr-3">
+                                {{ form_label(form.number) }}
+                                {{ form_widget(form.number) }}
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 p-3">
+                                {{ form_label(form.name) }}
+                                {{ form_widget(form.name) }}
+                            </div>
+                        </div>
+                        {{ form_widget(form) }}
+                        <div class="row pt-4 pb-3">
+                            <div class="col">
+                                <button class="btn btn-block text-uppercase shadow bg-theme border-theme float-right"
+                                        type="submit">
+                                    Enregistrer
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade modalIcons" tabindex="-1" role="dialog" aria-labelledby="modalIcons" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content p-2">
+                {{ render(controller('AppBundle:Back:listIcons')) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/resume.js') }}"></script>
+{% endblock %}

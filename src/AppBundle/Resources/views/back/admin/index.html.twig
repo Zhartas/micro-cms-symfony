@@ -1,0 +1,17 @@
+{% extends '@views/back/layout.html.twig' %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/back/admin.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/back/translations.css') }}"/>
+{% endblock %}
+{% block header_layout %}
+    {% include '@views/back/header.html.twig' %}
+{% endblock %}
+{% block main_layout %}
+    {% block form %}
+
+    {% endblock %}
+{% endblock %}
+{% block js_layout %}
+    <script type="text/javascript" src="{{ asset('js/back/admin.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/back/textarea-autosize.js') }}"></script>
+{% endblock %}

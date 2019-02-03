@@ -1,0 +1,261 @@
+{% extends '@views/front/layout.html.twig' %}
+{% block head_layout %}
+    <meta property="og:title" content="{{ 'about.og.title' | trans }}"/>
+    <meta property="og:image" content="{{ asset('img/og-img.jpg') }}"/>
+    <meta name="description" content="{{ 'about.og.description' | trans }}"/>
+    <meta property="og:description" content="{{ 'about.og.description' | trans }}"/>
+    <meta property="og:url" content="{{ 'about.og.url' | trans }}"/>
+    <meta property="og:type" content="{{ 'about.og.type' | trans }}"/>
+    <meta property="og:site_name" content="{{ 'about.og.site_name' | trans }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/fullscreen.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/navHamburgeur.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/timeline-bullet.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/about.css') }}"/>
+    <link rel="canonical"
+          href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+{% endblock %}
+{% block body_layout %}
+    <header id="headerFullscreen"
+            style="background-image: {% if images['about1'] is defined %}url({{ asset('img/img-user/'~images['about1'].name~'.'~images['about1'].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+        {% include '@views/front/vendor/navHamburgeur.html.twig' %}
+        {% include '@views/front/vendor/contactBtn.html.twig' %}
+        <div class="container-fluid position-absolute boxText">
+            <div class="row">
+                <div class="col p-2">
+                    <strong class="abstractWord w-90 text-left">{% if editor %}<i
+                                class="shadow edit-id d-none">15</i>{% endif %}{{ 'à-propos.mot clé 1'|trans|nl2br }}
+                    </strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="w-90 p-3 bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                    <div class="h1">
+                        <h1 class="font-weight-bold">{% if editor %}<i
+                                    class="shadow edit-id d-none">16</i>{% endif %}{{ 'à-propos.titre principal H1'|trans|nl2br }}
+                        </h1>
+                        <hr class="bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                        <p>{% if editor %}<i
+                                    class="shadow edit-id d-none">17</i>{% endif %}{{ 'à-propos.paragraphe principal'|trans|nl2br }}
+                        </p>
+                    </div>
+                    <a class="text-dark d-none d-lg-block float-right btn text-uppercase btn-lg shadow bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+                       href="{{ url('contact') }}" role="button">{{ 'base.bouton de contact'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <section id="about" class="position-relative">
+            <div class="container position-relative">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6" id="borderCol">
+                        <h2 class="h5 font-weight-bold position-relative text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{% if editor %}
+                            <i
+                                    class="shadow edit-id d-none">18</i>{% endif %}{{ 'à-propos.titre H2'|trans|nl2br }}</span>
+                        </h2>
+                        <p>{% if editor %}<i
+                                    class="shadow edit-id d-none">19</i>{% endif %}{{ 'à-propos.sous-titre H2'|trans|nl2br }}
+                        </p>
+                        <div class="pb-4">
+                            <p>{% if editor %}<i
+                                        class="shadow edit-id d-none">20</i>{% endif %}{{ 'à-propos.paragraphe 1'|trans|nl2br }}
+                            </p>
+                            <p>{% if editor %}<i
+                                        class="shadow edit-id d-none">21</i>{% endif %}{{ 'à-propos.paragraphe 2'|trans|nl2br }}
+                            </p>
+                        </div>
+                        {% if social is not empty %}
+                            <div class="d-none d-md-block pb-4" id="boxSocialContactDesktop">
+                                <div>
+                                    <p class="h4 text-capitalize pb-1">{{ 'réseaux sociaux'|trans }}</p>
+
+                                    <div>
+                                        {% if social.facebook != '' %}
+                                            <a target="_blank" href="{{ social.facebook }}" class="m-2"><i
+                                                        class="fab fa-facebook-f socialNetwork"></i></a>
+                                        {% endif %}
+                                        {% if social.linkedin != '' %}
+                                            <a target="_blank" href="{{ social.linkedin }}" class="m-2"><i
+                                                        class="fab fa-linkedin-in socialNetwork"></i></a>
+                                        {% endif %}
+                                        {% if social.instagram != '' %}
+                                            <a class="m-2" target="_blank" href="{{ social.instagram }}"><i
+                                                        class="fab fa-instagram socialNetwork  "></i></a></li>
+                                        {% endif %}
+                                        {% if social.twitter != '' %}
+                                            <a class="m-2" target="_blank" href="{{ social.twitter }}"><i
+                                                        class="fab fa-twitter socialNetwork"></i></a></li>
+                                        {% endif %}
+                                        {% if social.youtube != '' %}
+                                            <a class="m-2" target="_blank" href="{{ social.youtube }}"><i
+                                                        class="fab fa-youtube socialNetwork"></i></a></li>
+                                        {% endif %}
+                                    </div>
+
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if resumes is not empty %}
+                            <div class="row skills skills-desk">
+                                {% for resume in resumes %}
+                                    {% if resume.lang.code == app.request.get('_locale') %}
+                                        <div class="col-sm-12 col-md-6 col-lg-3 text-center">
+                                            {% if resume.icon is not null %}<i
+                                                    class="material-icons">{{ resume.icon }}</i>{% endif %}
+                                            <p class="font-weight-bold h6">{{ resume.number }}</p>
+                                            <p class="small">{{ resume.name }}</p>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    <div class="col-md-6 text-right d-none d-sm-block">
+                        <img src="{% if images['about2'] is defined %}{{ asset('img/img-user/'~images['about2'].name~'.'~images['about2'].extension) }}{% else %}https://source.unsplash.com/random/500x700{% endif %}"
+                             alt="{{ 'home.about.img.alt'|trans }}">
+                        <i id="aboutLogo"></i>
+                    </div>
+                    <div class="col-md-12 d-none d-md-block d-lg-none mb-5">
+                        {% if resumes is not empty %}
+                            <div class="row skills">
+                                {% for resume in resumes %}
+                                    {% if resume.lang.code == app.request.get('_locale') %}
+                                        <div class="col-sm-12 col-md-6 col-lg-3 text-center">
+                                            {% if resume.icon is not null %}<i
+                                                    class="material-icons">{{ resume.icon }}</i>{% endif %}
+                                            <p class="font-weight-bold h4">{{ resume.number }}</p>
+                                            <p>{{ resume.name }}</p>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+
+                    </div>
+                    {% if social is not empty %}
+                        <div id="boxSocial" class="w-100"
+                             style="background-image: {% if images['about2'] is defined %}url({{ asset('img/img-user/'~images['about2'].name~'.'~images['about2'].extension) }}){% else %}url('https://source.unsplash.com/random/768x1080'){% endif %};">
+                            <div class="col">
+                                <p class="font-weight-bold h3 text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                                    {{ 'réseaux sociaux'|trans }}</p>
+                                <div>
+                                    {% if social.facebook != '' %}
+                                        <a target="_blank" href="{{ social.facebook }}" class="m-2"><i
+                                                    class="fab fa-facebook-f socialNetwork"></i></a>
+                                    {% endif %}
+                                    {% if social.linkedin != '' %}
+                                        <a target="_blank" href="{{ social.linkedin }}" class="m-2"><i
+                                                    class="fab fa-linkedin-in socialNetwork"></i></a>
+                                    {% endif %}
+                                    {% if social.instagram != '' %}
+                                        <a class="m-2" target="_blank" href="{{ social.instagram }}"><i
+                                                    class="fab fa-instagram socialNetwork  "></i></a>
+                                    {% endif %}
+                                    {% if social.twitter != '' %}
+                                        <a class="m-2" target="_blank" href="{{ social.twitter }}"><i
+                                                    class="fab fa-twitter socialNetwork"></i></a>
+                                    {% endif %}
+                                    {% if social.youtube != '' %}
+                                        <a class="m-2" target="_blank" href="{{ social.youtube }}"><i
+                                                    class="fab fa-youtube socialNetwork"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                {% if timelines is not empty %}
+                    <div class="row">
+                        <div class="col">
+                            <div class="main-timeline">
+
+                                {% for timeline in timelines %}
+                                    {% if timeline.lang.code == app.request.get('_locale') %}
+                                        <div class="timeline">
+                                  <span class="timeline-content">
+                                    <span class="year">{{ timeline.dateStart }}{% if timeline.status == "now" %}/YTD {% elseif timeline.dateEnd is not null %} / {{ timeline.dateEnd }}{% endif %}</span>
+                                    <div class="inner-content">
+                                        <h3 class="title text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{{ timeline.title }}</h3>
+                                        <p class="description">
+                                            {{ timeline.text }}
+                                        </p>
+                                    </div>
+                                    </span>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <section id="coaching" class="bg-dark">
+            <div class="container">
+                <div class="row" id="headerCoaching">
+                    <div class="col">
+                        <h2 class="h5 font-weight-bold text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{% if editor %}
+                                <i
+                                        class="shadow edit-id d-none">22</i>{% endif %}{{ 'à-propos.approche titre 1'|trans|nl2br }}
+                        </h2>
+                        <p class="font-weight-bold text-uppercase text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{% if editor %}
+                                <i
+                                        class="shadow edit-id d-none">23</i>{% endif %}{{ 'à-propos.approche titre 2'|trans|nl2br }}
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="text-light">{% if editor %}<i
+                                    class="shadow edit-id d-none">24</i>{% endif %}{{ 'à-propos.approche paragraphe'|trans|nl2br }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row text-light text-center">
+                    {% if vps is not empty %}
+                        {% for vp in vps %}
+                            {% if vp.lang.code == app.request.get('_locale') %}
+                                <div class="col-sm-12 col-md-4 cardCoaching">
+                                    <i class="text-center material-icons fa-3x rounded-circle text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">{{ vp.icon }}</i>
+                                    <h3 class="h5 font-weight-bold">{{ vp.title }}
+                                    </h3>
+                                    <p>{{ vp.text }}
+                                    </p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </section>
+
+        <section id="motivational"
+                 style="background-image: {% if images["about3"] is defined %}url({{ asset('img/img-user/'~images['about3'].name~'.'~images['about3'].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+            <div class="container">
+                <div class="row">
+                    <q class="p-5 font-weight-bold font-italic">
+                        {% if editor %}<i
+                                class="shadow edit-id d-none">25</i>{% endif %}{{ 'à-propos.quote'|trans|nl2br }}
+                    </q>
+                    <cite class="text-right p-2 font-weight-bold text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">- {% if editor %}
+                            <i
+                                    class="shadow edit-id d-none">26</i>{% endif %}{{ 'à-propos.quote name'|trans|nl2br }}
+                    </cite>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block js_layout %}
+
+{% endblock %}

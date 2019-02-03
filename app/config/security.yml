@@ -1,0 +1,36 @@
+security:
+    providers:
+        in_memory:
+            memory:
+                users:
+                    master:
+                        password: $2y$12$ZZ1t.FAbMev2nUFJ.wTvGOfs/A2NTZr/h..nESq47fwb51urG2gQO
+                        roles: 'ROLE_MASTER'
+                    admin:
+                        password: $2y$12$CIwL41V4IEDLIUoLHwrCEelact.WNP59rN7xo7RRxgCEfC5JCGq1K
+                        roles: 'ROLE_ADMIN'
+                    user-mehdi:
+                        password: $2y$12$LmZFcuEuBQMAwp9ygp5KA.6I2dWmcRmWTDa1nmLnbodyzx6O9zOSK
+                        roles: 'ROLE_USER'
+    encoders:
+            Symfony\Component\Security\Core\User\User:
+                algorithm: bcrypt
+                cost: 12
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: ~
+            http_basic: ~
+            form_login:
+                login_path: admin_authentification
+                check_path: admin_authentification
+                default_target_path: admin_gestion
+            logout:
+                path: /logout
+                target: home
+
+    access_control:
+        - { path: ^/admin/authentification, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: [ROLE_MASTER, ROLE_ADMIN, ROLE_USER] }

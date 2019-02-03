@@ -1,0 +1,104 @@
+{% extends '@views/front/layout.html.twig' %}
+{% block head_layout %}
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/fullscreen.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/navHamburgeur.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/front/services.css') }}"/>
+    <link rel="canonical"
+          href="{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+
+{% endblock %}
+{% block body_layout %}
+    <header id="headerFullscreen" class="position-relative"
+            style="background-image: {% if images['serviceHeader'~service.id] is defined %}url({{ asset('img/img-user/'~images['serviceHeader'~service.id].name~'.'~images['serviceHeader'~service.id].extension) }}){% else %}url('https://source.unsplash.com/random/2500x1600'){% endif %};">
+        {% include '@views/front/vendor/navHamburgeur.html.twig' %}
+        {% include '@views/front/vendor/contactBtn.html.twig' %}
+        <div class="container-fluid position-absolute boxText">
+            <div class="row">
+                <div class="col">
+                    {% if service is defined and service.about is not null %}
+                        <h1 class="abstractWord text-uppercase text-light text-center display-4">{{ service.title }}</h1>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+        <div class="container" id="boxServices">
+            <div class="row">
+                <div class="col-md-3 d-none d-md-block pt-4 pb-2">
+                    <nav>
+                        {% if services is defined and services is not null %}
+                            <h2 class="h4">{{ 'service.title' | trans }}{% if editor %}<i
+                                        class="shadow edit-id d-none">47</i>{% endif %}</h2>
+                            <ul>
+                                {% for service in services %}
+                                    {% if service.lang.code == app.request.get('_locale') %}
+                                        <li class="pt-2"><a class="text-dark"
+                                                            href="{{ url('services', {'urlServices' : service.url}) }}">{{ service.title }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        {% if service is defined and service.message is not null %}
+                            <div id="comment" class="pt-4">
+                                <blockquote>
+                                    <p class="font-italic">{{ service.message }}</p>
+                                </blockquote>
+                                {% if admin is defined and admin is not null and admin.firstname is not null and admin.lastname is not null %}
+                                    <div class=" text-center">
+
+                                            <div class="box-avatar d-block m-auto shadow">
+                                                <img src="{% if images['avatar'] is defined %}{{ asset('img/img-user/'~images['avatar'].name~'.'~images['avatar'].extension) }}{% else %}https://source.unsplash.com/random/150x150{% endif %}"
+                                                     alt="{{ admin.firstname|capitalize }} {{ admin.lastname|upper }}"
+                                                     class="w-100">
+                                            </div>
+
+                                    </div>
+                                    <cite class="w-100 d-block text-center pt-3">
+                                        {{ admin.firstname|capitalize }} {{ admin.lastname|upper }}
+                                    </cite>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <div class="pt-5">
+                            <a class="text-dark d-lg-block float-right btn btn-block text-uppercase btn-lg shadow bg-theme{% if site is not empty %}-{{ site.theme }}{% endif %}"
+                               href="{{ url('contact') }}" role="button">{{ 'base.bouton de contact'|trans }}</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col-sm-12 col-md-9 pt-4 pb-2">
+                    <div id="boxText">
+                        {% if service is defined and service.text is not null %}
+                            {{ service.text|raw }}
+                        {% endif %}
+                    </div>
+                    {% if service is defined %}
+                        <div id="bullet">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    {% if service.benefits|length != 0 %}
+                                        <h3 class="font-weight-bold text-uppercase h4 pt-4 pb-2 text-theme{% if site is not empty %}-{{ site.theme }}{% endif %}">
+                                            {{ 'service.points-cles' | trans }}{% if editor %}<i
+                                                    class="shadow edit-id d-none">48</i>{% endif %}</h3>
+                                        <ul>
+                                            {% for benefit in service.benefits %}
+                                                <li class="pt-2">{{ benefit.text }}</li>
+                                            {% endfor %}
+                                        </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-7 d-none d-md-block pt-4 box-img">
+                                    {% if images['serviceFooter'~service.id] is defined %}
+                                        <img src="{{ asset('img/img-user/'~images['serviceFooter'~service.id].name~'.'~images['serviceFooter'~service.id].extension) }}"
+                                             alt="alt"/>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

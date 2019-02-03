@@ -1,0 +1,64 @@
+.files{
+    position:relative;
+    border: 2px dashed #EBEBEB;
+    text-align: center;
+    margin: 0;
+    width: 100% !important;
+    height:250px;
+
+}
+
+.files input[type="file"] {
+    width: 100% !important;
+    height:200px;
+    opacity: 0 !important;
+    border:none;
+    padding:0;
+    background:transparent;
+    text-align:center;
+}
+
+.files{ position:relative}
+
+.files:after {
+    pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 70px;
+    right: 0;
+    height: 70px;
+    content: "";
+    background-image: url(https://image.flaticon.com/icons/svg/130/130993.svg);
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    content:"Taille de la photo: 1260x627 px";
+    position:absolute;
+    bottom:55px;;
+    left:0;
+    right:0;
+    display:block;
+    text-align:center;
+    color: #333333;
+    font-weight:bold;
+}
+
+.files .custom-file-input{
+    opacity: 1 !important;
+}
+
+
+
+.files .custom-file-input div:first-child label{
+    opacity: 0;
+}
+.files .custom-file-input div:last-child input{
+    position: relative;
+    top: 3px;
+    left: 5px;
+}

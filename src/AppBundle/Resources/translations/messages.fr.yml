@@ -1,0 +1,64 @@
+accueil:
+    'mot clé 1': 'Mot clé 1 (max  1-2 mots)'
+    'mot clé 2': 'Mot clé 2 (max  1-2 mots)'
+    'titre principal H1': 'Titre principal H1 (max 70 charactères)'
+    'titre secondaire H2': 'Sed ut tum ad senem senex de senectute, sic hoc libro ad amicum amicissimus scripsi '
+    'mot clé 3': 'Mot clé 3 (max  1-2 mots)'
+    'mot clé 4': 'Mot clé 5 (max  1-2 mots)'
+    'titre a propos': "Lorem ipsum\r\nLorem ipsum"
+    'paragraphe 1 a propos': 'Sed ut tum ad senem senex de senectute, sic hoc libro ad amicum amicissimus scripsi de amicitia. Tum est Cato locutus, quo erat nemo fere senior temporibus illis,'
+    'paragraphe 2 a propos': 'Sed ut tum ad senem senex de senectute, sic hoc libro ad amicum amicissimus scripsi de amicitia. Tum est Cato locutus, quo erat nemo fere senior temporibus illis,'
+    'titre services': 'Sed ut tum ad senem senex de senectute, sic hoc libro ad amicum amicissimus scripsi de amicitia. Tum est Cato locutus, quo erat nemo fere senior temporibus illis'
+    'paragraphe 1 services': 'Sed ut tum ad senem senex de senectute, sic hoc libro ad amicum amicissimus scripsi de amicitia. Tum est Cato locutus, quo erat nemo fere senior temporibus illis'
+    'paragraphe 2 services': 'Sed ut tum ad senem senex de senectute, sic hoc libro ad amicum amicissimus scripsi de amicitia. Tum est Cato locutus, quo erat nemo fere senior temporibu'
+    'quote 1': 'Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque'
+    'quote 2': 'Lorem dolores ames'
+à-propos:
+    'mot clé 1': 'Mot clé 1 (max  1-2 mots)'
+    'titre principal H1': 'Titre principal H1 (max 70 charactères)'
+    'paragraphe principal': "Sed ut tum ad senem senex de senectute, sic hoc\r\nlibro ad amicum amicissimus scripsi"
+    'titre H2': 'Sed ut tum ad senem senex'
+    'sous-titre H2': 'Soleo saepe ante oculos ponere, idque'
+    'paragraphe 1': 'Soleo saepe ante oculos ponere, idque libenter crebris usurpare sermonibus, omnis nostrorum imperatorum, omnis exterarum gentium potentissimorumque '
+    'paragraphe 2': 'Soleo saepe ante oculos ponere, idque libenter crebris usurpare sermonibus, omnis nostrorum imperatorum, omnis exterarum gentium potentissimorumque '
+    'approche titre 1': 'Excitavit hic ardor milites per municipia plurima, quae isdem conterminant'
+    'approche titre 2': 'Excitavit hic ardor'
+    'approche paragraphe': 'Ideoque fertur neminem aliquando ob haec vel similia poenae addictum oblato de more elogio revocari iussisse, quod inexorabiles quoque principes factitarunt. et exitiale hoc vitium, quod in aliis non numquam intepescit, in illo aetatis progressu effervescebat, obstinatum eius propositum accendente adulatorum cohorte.'
+    quote: 'Hinc ille commotus ut iniusta perferens et indigna praefecti custodiam protectoribus mandaverat fidis'
+    'quote name': 'Habilis meritis'
+contact:
+    title: "Lorem ipsum\r\nDolores ametis"
+    email: Email
+    phone: Téléphone
+formulaire:
+    label-prénom: Prénom
+    label-nom: Nom
+    label-société: Société
+    label-téléphone: Téléphone
+    label-email: 'Votre e-mail'
+    label-texte: 'Votre message'
+    placeholder-prénom: 'Votre prénom'
+    placeholder-nom: 'Votre nom'
+    placeholder-société: 'Société, organisme'
+    placeholder-email: you@example.com
+    placeholder-téléphone: 038918...
+    placeholder-texte: 'Prise de RDV, question?'
+    bouton: 'Envoyer ma demande'
+navigation:
+    'lien 1': Accueil
+    'lien 2': 'Mes services'
+    'lien 3': 'A propos de moi'
+    'lien 4': 'Contactez moi'
+service:
+    title: Prestations
+    points-cles: 'Vos bénéfices'
+    'en savoir plus': 'En savoir plus'
+base:
+    'bouton de contact': 'Lorem ipsum'
+    'popup tel titre': 'CONTACTEZ-MOI PAR TÉLÉPHONE'
+    'popup tel bouton': fermer
+    'popup email titre': 'CONTACTEZ-MOI PAR EMAIL'
+    'popup email bouton': fermer
+    'footer titre adresse': Adresse
+    'footer titre téléphone': Téléphone
+    'footer titre email': Email

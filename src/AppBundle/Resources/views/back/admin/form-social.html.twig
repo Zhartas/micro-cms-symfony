@@ -1,0 +1,115 @@
+{% extends '@views/back/admin/index.html.twig' %}
+{% block form %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Mes Réseaux sociaux</h2>
+                <hr>
+                <p class="pb-1">Vous n’avez pas encore relié vos réseaux sociaux à votre site internet? Voilà deux
+                    raisons de le faire.<br> premièrement, vous n’atteindrez pas forcément les mêmes personnes sur votre
+                    site que sur vos réseaux (et inversement). <br>Deuxièmement, évitez à votre visiteur de chercher
+                    votre pseudo sur les réseaux… Donnez-le lui directement!</p>
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                {{ form_start(formSocial) }}
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Ajouter/supprimer des réseaux</h2>
+                        <hr>
+                    </div>
+                </div>
+
+
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="row no-gutters icon-form-input">
+                            <div class="col-sm-12 p-3">
+                                <div class="pb-1">
+                                    <img src="{{ asset('img/framework/back/fb.png') }}">
+                                    {{ form_label(formSocial.facebook) }}
+                                </div>
+
+                                {{ form_widget(formSocial.facebook) }}
+                                <small class="form-text text-muted ml-1">Use https protocol</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+
+                        <div class="icon-form-input">
+                            <div class="col-sm-12 p-3">
+                                <div class="pb-1">
+                                    <img src="{{ asset('img/framework/back/linkedin.png') }}">
+                                    {{ form_label(formSocial.linkedin) }}
+                                </div>
+
+                                {{ form_widget(formSocial.linkedin) }}
+                                <small class="form-text text-muted ml-1">Use https protocol</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="row no-gutters icon-form-input">
+                            <div class="col-sm-12 p-3">
+                                <div class="pb-1">
+                                    <img src="{{ asset('img/framework/back/instagram.png') }}">
+                                    {{ form_label(formSocial.instagram) }}
+                                </div>
+
+                                {{ form_widget(formSocial.instagram) }}
+                                <small class="form-text text-muted ml-1">Use https protocol</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+
+                        <div class="icon-form-input">
+                            <div class="col-sm-12 p-3">
+                                <div class="pb-1">
+                                    <img src="{{ asset('img/framework/back/twitter.png') }}">
+                                    {{ form_label(formSocial.twitter) }}
+                                </div>
+
+                                {{ form_widget(formSocial.twitter) }}
+                                <small class="form-text text-muted ml-1">Use https protocol</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row no-gutters">
+                    <div class="col-sm-12 col-md-12">
+                        <div class="icon-form-input">
+                            <div class="col-sm-12 p-3">
+                                <div class="pb-1">
+                                    <img src="{{ asset('img/framework/back/youtube.png') }}">
+                                    {{ form_label(formSocial.youtube) }}
+                                </div>
+                                {{ form_widget(formSocial.youtube) }}
+                                <small class="form-text text-muted ml-1">Use https protocol</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row pt-4 pb-3">
+                    <div class="col">
+                        <button class="btn btn-block bg-theme border-theme text-uppercase shadow float-right"
+                                type="submit">
+                            Enregistrer
+                        </button>
+                    </div>
+                </div>
+                {{ form_end(formSocial) }}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

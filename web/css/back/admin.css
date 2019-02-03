@@ -1,0 +1,143 @@
+form .accordion .card-body i.edit-id{
+    position: relative;
+    top: -3px;
+    left: -50px;
+}
+
+form .accordion label{
+    position: relative;
+    bottom: 5px;
+    left: 50px;
+}
+.edit-id {
+    position: absolute !important;
+    min-width: 25px;
+    height: 25px;
+    padding: .1rem .3rem;
+    text-align: center;
+    border-radius: 3px;
+    line-height: 1.2;
+    font-style: normal !important;
+    z-index: 777;
+    font-weight: 500 !important;
+    font-size: 1rem !important;
+    left: -42px;
+    color: white;
+    background: #ff5a5f !important;
+}
+main .lang-by-default{
+    position: absolute;
+    font-size: 80%;
+    left: 80px;
+    text-indent: 5px;
+    top: 2px;
+    line-height: 1;
+    border: 1px solid #05e249;
+    padding: .1rem .5rem .3rem 0;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+main .lang-by-default i{
+    font-size: 100%;
+    position: relative;
+    top: 2px;
+    left: -5px;
+}
+
+main #choose-lang i{
+    position: relative;
+    top: 6px;
+    right: 5px;
+}
+
+
+
+
+
+
+form .accordion button[type='button'] {
+    border: none !important;
+    outline: none;
+    font-weight: 500;
+    background: none !important;
+    cursor: pointer;
+}
+
+form .accordion .card-header{
+   border-bottom: none;
+}
+
+form .accordion .show .card-body{
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+
+
+
+
+form .accordion .card-header i {
+    position: absolute;
+    right: 16px;
+    top: 18px;
+}
+
+form .accordion .active-border{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+form .accordion .card-header{
+    padding: 1rem 1.25rem;
+}
+
+form .card-color-theme{
+    height: 100px;
+    position: relative;
+    width: 100px;
+    border: 2px solid white !important;
+    border-radius: 4px;
+    transition: border 100ms ease-in;
+}
+
+form .card-color-theme.active{
+    border: 2px solid #ff5a5f !important;
+}
+
+form .card-color-theme:hover{
+    cursor: pointer;
+    border: 2px solid #ff5a5f !important;
+}
+
+form .card-color-theme span:first-child{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 10px;
+    margin-left: auto;
+    border-radius: 5px;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+}
+
+form .card-color-theme span:last-child{
+    position: absolute;
+    bottom: 0;
+    text-transform: capitalize;
+    left: 0;
+    right: 0;
+}
+
+@media (min-width: 768px) {
+    #images img{
+        position: relative;
+        top: 7px;
+    }
+}
+
+@media (min-width: 992px) {
+    main .box .btn-block{
+        max-width: 300px;
+        margin: 1rem auto;
+    }
+}

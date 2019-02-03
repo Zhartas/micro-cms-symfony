@@ -1,0 +1,85 @@
+{% extends '@views/back/layout.html.twig' %}
+    {% block head_layout %}
+        <link rel="stylesheet" href="{{ asset('css/back/services.css') }}"/>
+    {% endblock %}
+  {% block header_layout %}
+      {% include '@views/back/header.html.twig' %}
+  {% endblock %}
+{% block main_layout %}
+
+    <div class="container">
+        <div class="row pb-5">
+            <h1>Mes services</h1>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div>
+                    <h2 class="h5">Mes services</h2>
+                    <hr>
+                    <p class="pb-1">Mise en avant des services principaux. Mettez en valeur les choses les plus importantes, lorsque la personne va lire cette page, il faut qu'elle soit intriguée et souhaite aller plus loin !</p>
+
+                    <a href="{{ url('admin_edit_service', {'url': 'new' }) }}" class="btn-icon text-theme"><span><i
+                                    class="material-icons">add_circle_outline</i></span><span>Créer un service</span>
+                    </a>
+                </div>
+
+                {% include '@views/back/btn-viewSite.html.twig' %}
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Listes des services</h2>
+                        <hr>
+                    </div>
+
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+
+                        <div class="table">
+                            <div class="table-body">
+                                {% if services|length == 0 %}
+                                    <ul>
+                                        <li class="text-center">
+                                            <img class=" pt-4" src="{{ asset('img/framework/back/cloud-computing.png') }}"/>
+                                            <p class="font-weight-bold text-muted">Aucun service pour le moment</p>
+
+                                            <div>
+                                                <a href="{{ url('admin_edit_service', {'url': 'new' }) }}"
+                                                   class="btn-icon text-theme"><span><i class="material-icons">add_circle_outline</i></span><span>Créer votre premier service</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% else %}
+                                    <ul>
+                                    {% for service in services %}
+                                       <li class="row">
+                                            <div class="col-sm-5">
+                                                <i class="locale {{ service.lang.code }}">{{ service.lang.code }}</i>
+                                                <h3 class="text-theme h5 m-0">{{ service.title }}</h3>
+                                                <a href="{{ url('services', {'urlServices' : service.url })}}" class="small">/{{ service.url }}</a>
+                                            </div>
+                                           <div class="col-sm-3"><p class="pr-3">Créée le {{ service.publishedAt|date("d/m/Y") }}</p></div>
+                                            <div class="col-sm-4">
+                                                <div>
+                                                    <a href="{{ url('admin_edit_service', {'url': service.url }) }}"  class="btn-dev">Modifier</a>
+                                                    <a href="{{ url('admin_remove_service', {'id': service.id }) }}"  class="btn-dev">Supprimer</a>
+                                                </div>
+                                            </div>
+
+                                       </li>
+                                        <hr>
+                                    {% endfor %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends '@views/back/admin/index.html.twig' %}
+{% block form %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2 class="h5">Édition des textes</h2>
+                <hr>
+                <p class="pb-1">Bienvenue dans l'éditeur de texte de TalentID ! Ici vous pouvez modifier à votre guise l'intégralité des textes de votre site, optimiser vos mots clés et définir plusieurs langues de traduction.</p>
+
+
+                {% if is_granted('ROLE_MASTER') %}
+                    <h2 class="h5 pt-4">Sync Multi-lang</h2>
+                    <hr>
+                    <strong class="danger">Des connaissances en PROGRAMMATION sont requis pour éffectuer cette
+                        action.</strong>
+                    <p class="pt-1">
+                        Re-sync Locale
+                    </p>
+                    <a class="btn-dev mt-1 mb-4 text-uppercase" href="{{ url('admin_reset_lang') }}">Re-sync</a>
+                {% endif %}
+                {% include '@views/back/btn-viewSite.html.twig' %}
+
+
+                {% if current == 'translations' %}
+                    <p class="h5 pt-3">Modifier les textes</p>
+                    <hr>
+                    <nav id="choose-lang">
+                        <ul>
+                            {% for lang in langs %}
+                                <li class="pb-1">
+                                    {% if app.request.get('l') is defined and app.request.get('l') == lang.code %}
+                                        <i class="material-icons text-green">check_box</i>
+                                    {% else %}
+                                        <i class="material-icons text-theme">check_box_outline_blank</i>
+                                    {% endif %}
+                                    <a href="{{ url('admin_translations_lang', {'l' : lang.code }) }}"
+                                       class="text-capitalize h6 decoration-none {% if app.request.get('l') is defined and app.request.get('l') == lang.code %} text-green{% endif %}">Texte {{ lang.code }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                {% endif %}
+
+
+            </div>
+            <div class="col-sm-12 col-md-8">
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Choix des langues</h2>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="row no-gutters">
+                    <div class="col">
+                        <form action="{{ url('admin_translations') }}" method="post" name="appbundle_locale">
+                            <table class="table" id="lang-table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for lang in list_langs %}
+                                    <tr>
+                                        <td class="text-capitalize"><img class="ic-flag" src="{{ asset("img/framework/interface/"~lang.code~".svg") }}" alt="">{% if lang.status %}<a href="{{ url('admin_translations_lang', {'l' : lang.code }) }}" class="h6 decoration-none">{{ lang.name }}</a>{% else %}{{ lang.name }}{% endif %}</td>
+                                        <td class="text-uppercase">{{ lang.code }}</td>
+                                        <td>
+                                            <div class="custom-control custom-checkbox position-relative">
+                                                <input type="checkbox" class="custom-control-input" name="{{ lang.id }}"
+                                                       id="customCheck{{ lang.id }}"
+                                                       {% if lang.status %}checked{% endif %}
+                                                       value="{{ lang.status }}" {% if lang.code == 'fr' %}disabled{% endif %}>
+                                                <label class="custom-control-label "
+                                                       for="customCheck{{ lang.id }}">Actif</label>
+                                                {% if lang.code == 'fr' %}<span class="d-none d-md-block lang-by-default text-green"><i
+                                                            class="material-icons">
+                            notifications
+                        </i>Langue par défaut</span>{% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="row pt-4 pb-5">
+                    <div class="col">
+                        <button class="btn btn-block border-theme bg-theme text-uppercase shadow float-right" type="submit"
+                                data-submit="appbundle_locale">
+                            Enregistrer
+                        </button>
+                    </div>
+                </div>
+                {% if is_granted('ROLE_MASTER') %}
+                <div class="row no-gutters header-form">
+                    <div class="col">
+                        <h2 class="h5">Historique</h2>
+                        <hr>
+                        <p>La sauvegarde manuel de vos traductions permet d'enregistrer définivement sur un serveur
+                            l'intégralité des traductions. En cas de dysfonctionnement, celle ci pourront être
+                            réinitilalisé.</p>
+                        <strong class="danger">Des connaissances en PROGRAMMATION sont requis pour éffectuer cette
+                            action.</strong>
+                    </div>
+                </div>
+                <a href="{{ url('admin_uploadTranslations') }}" class="btn-dev mt-4 mb-4 text-uppercase">Uploader</a>
+                <div class="row">
+                    <div class="col">
+                        {% if lastUpload is not empty %}
+                            <table class="table" id="lang-table">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Lang enregistré</th>
+                                    <th scope="col">last upload</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr>
+                                    <td>
+                                        {% for lang in list_langs %}
+                                            {% if lang.status %}
+                                                {{ lang.code }} /
+                                            {% endif %}
+                                        {% endfor %}
+                                    </td>
+                                    <td>
+                                        {{ lastUpload.updateAt|date("d/m/Y h:i:s") }}
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('admin_syncTranslations') }}">Synchroniser</a>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+
+    </div>
+{% endblock %}

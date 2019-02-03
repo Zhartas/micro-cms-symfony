@@ -1,0 +1,220 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {% if admin is not empty %}
+        {% if admin.firstName != '' and admin.lastName != '' %}
+            <meta name="author" property="og:author" content="{{ admin.firstName }} {{ admin.lastName }}">
+        {% endif %}
+    {% endif %}
+
+    {% if site is not empty %}
+        {% if site.sitename != '' %}
+            <meta name="site_name" property="og:site_name" content="{{ site.sitename }}"/>
+        {% endif %}
+        {% if site.url != '' %}
+            <meta name="url" property="og:url" content="{{ site.url }}"/>
+            <link rel="canonical" href="{{ site.url }}"/>
+        {% endif %}
+        {% if site.metaTitle != '' %}
+            <meta name="title" property="og:title" content="{{ site.metaTitle }}"/>
+        {% endif %}
+        <meta name="type" property="og:type" contenu="website"/>
+        {% if site.metaDescription != '' %}
+            <meta name="description" property="og:description"
+                  content="{{ site.metaDescription }}"/>
+        {% endif %}
+        {% if site.image != '' %}
+            <meta name="image" property="og:image" content="{{ asset('uploads/images/seo/'~site.image) }}"/>
+        {% endif %}
+
+    {% endif %}
+
+
+
+    <title>{% if site is defined and site is not null and site.sitename is not null %}{{ site.sitename }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ asset('css/front/core.css') }}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('css/front/vendor/contactBtn.css') }}"/>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    {% block head_layout %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+
+
+
+    {% if is_granted('ROLE_MASTER') or is_granted('ROLE_ADMIN') %}
+        {% set editor = true %}
+    {% else %}
+        {% set editor = false %}
+    {% endif %}
+    {% block body_layout %}{% endblock %}
+    <footer class="bg-dark">
+        <div class="container">
+            <div class="row text-light">
+                <div class="col-sm-12 col-md-6 pb-5">
+                    <ul class="p-0">
+
+                        <li>
+                            {% if site is defined and site is not empty and site.sitename != null %}
+                                <p class="font-weight-bold text-capitalize">{{ site.sitename }}</p>
+                            {% endif %}
+
+                            {% if admin is not empty %}
+                        </li>
+                        {% if admin.address != '' %}
+                            <li>
+                                <div class="font-weight-bold text-capitalize text-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}">
+                                    <i class="fas fa-map-marker-alt"></i> {{ 'base.footer titre adresse'|trans }}
+                                    {% if editor %}<i
+                                            class="shadow edit-id d-none">54</i>{% endif %}
+                                </div>
+                                <address>
+                                    {{ admin.address }}
+                                    {{ admin.cp }} {{ admin.city }}
+                                </address>
+                            </li>
+                        {% endif %}
+
+                        {% if admin.phone != '' %}
+                            <div class="font-weight-bold text-capitalize text-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}">
+                                <i class="fas fa-mobile-alt"></i> {{ 'base.footer titre téléphone'|trans }}
+                                {% if editor %}<i
+                                        class="shadow edit-id d-none">55</i>{% endif %}
+                            </div>
+                            <div>
+                                <p class="text-light">{{ admin.phone }}</p>
+                            </div>
+                        {% endif %}
+                        </li>
+                        {% if admin.email != '' %}
+                            <li>
+                                <div class="font-weight-bold text-capitalize text-theme{% if site is defined and site.theme is not null %}-{{ site.theme }}{% endif %}">
+                                    <i class="far fa-envelope-open"></i> {{ 'base.footer titre email'|trans }}
+                                    {% if editor %}<i
+                                            class="shadow edit-id d-none">56</i>{% endif %}
+                                </div>
+                                <address>
+                                    {{ admin.email }}
+                                </address>
+                            </li>
+                        {% endif %}
+
+                        {% endif %}
+
+
+
+                        {% if social[0] is defined %}
+                            <div>
+                                {% if social[0].facebook != '' %}
+                                    <a target="_blank" href="{{ social[0].facebook }}" class="m-2"><i
+                                                class="fab fa-facebook-f text-light"></i></a>
+                                {% endif %}
+                                {% if social[0].linkedin != '' %}
+                                    <a target="_blank" href="{{ social[0].linkedin }}" class="m-2"><i
+                                                class="fab fa-linkedin-in text-light"></i></a>
+                                {% endif %}
+                                {% if social[0].instagram != '' %}
+                                    <a class="m-2" target="_blank" href="{{ social[0].instagram }}"><i
+                                                class="fab fa-instagram text-light"></i></a></li>
+                                {% endif %}
+                                {% if social[0].twitter != '' %}
+                                    <a class="m-2" target="_blank" href="{{ social[0].twitter }}"><i
+                                                class="fab fa-twitter text-light"></i></a></li>
+                                {% endif %}
+                                {% if social[0].youtube != '' %}
+                                    <a class="m-2" target="_blank" href="{{ social[0].youtube }}"><i
+                                                class="fab fa-youtube text-light"></i></a></li>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="col-sm-12 col-md-6 pb-5">
+                    <ul class="p-0">
+                        <li class="p-1"><a href="{{ url('mentions-legales') }}"
+                                           class="text-light">{{ 'layout.footer.li.two'|trans|trans({}, 'framework') }}</a>
+                        </li>
+                        <li class="p-1"><a href="{{ url('cookies') }}"
+                                           class="text-light">{{ 'layout.footer.li.four'|trans|trans({}, 'framework') }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row text-center" id="developerBox">
+                <div class="col">
+                    <p class="text-secondary">{{ 'layout.footer.credits.text.one'|trans({}, 'framework') }}</p>
+                    <p class="text-secondary">{{ 'layout.footer.credits.text.two'|trans({}, 'framework') }}{{ 'now' | date('y') }}
+                        -20{{ 'now' | date('y')+1 }}</p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <div class="modal fade" id="localeModal" tabindex="-1" role="dialog" aria-labelledby="localeModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    {% for locale in locales %}
+                        <a class="row p-2 {% if app.request.locale == locale.code %}active{% endif %}"
+                           href="{{ url('home', {'_locale' : locale.code }) }}">
+                            <div class="col-sm-12 text-center">
+                                <i class="locale {{ locale.code }}">{{ locale.name }}</i>
+                            </div>
+                            <div class="col-sm-12 text-center">
+                                <p class="text-capitalize m-0 text-dark font-weight-bold">{{ locale.name }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    {% if sendMsg is defined or lastMsg is defined or errorCaptcha is defined %}
+        <div id="nfo">
+            <div class="container text-center">
+                <div class="row pt-4 pb-4">
+                    <div class="col-sm-12 col-md-1">
+                        <i class="fas fa-info-circle fa-3x mt-2"></i>
+                    </div>
+                    <div class="col-sm-12 col-md-9 p-4">
+                        <p class="font-weight-bold h2">Information</p>
+                        {% if sendMsg is defined %}
+                            <p>Un message vient d'être envoyé</p>
+                        {% elseif lastMsg is defined %}
+                            <p>Vous avez envoyé trop de message pour le moment!</p>
+                        {% else %}
+                            <p>Impossible d'envoyer un message, Captcha requis</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-12 col-md-2 text-center mt-2">
+                        <button class="btn btn-lg" type="button" id="btnNfo">Fermer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/front/core.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/front/vendor/navHamburgeur.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/check-form.js') }}"></script>
+    {% block js_layout %}{% endblock %}
+{% endblock %}
